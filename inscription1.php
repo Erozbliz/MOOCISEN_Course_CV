@@ -329,6 +329,13 @@
                               <option value="ZW">Zimbabwe</option>
                             </select>
                       </fieldset>
+                      <fieldset class="form-group">
+                          <label for="exampleSelect1">Occupation</label>
+                          <select class="form-control" id="exampleSelect2" name="selectJob">
+                          <option value="1">Etudiant</option>
+                          <option value="2">Diplomé</option>
+                          </select>
+                      </fieldset>
       <div class="checkbox">
         <label>
           <input type="checkbox"> Recevoir la newsletter

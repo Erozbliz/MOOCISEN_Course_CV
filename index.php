@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Bienvenue sur MOOCs</h1>
-                    <p>Voici des MOOCs destinés aux étudiants ingénieurs afin de pouvoir former les étudiants </p>
+                    <p>Voici des MOOCs destinés aux étudiants </p>
                 </div>
             </div>
         </div><br><br>
