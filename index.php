@@ -21,7 +21,7 @@
     <link href="css/logo-nav.css" rel="stylesheet">
 
     <link href="css/animate.css" rel="stylesheet">
-
+    
     <!-- Boite pour rotation -->
     <link href="css/rotating-card.css" rel="stylesheet" />
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -36,8 +36,6 @@
     </head>
 
     <body>
-
-
 
         <!-- Page Content -->
         <div class="container">
@@ -59,8 +57,6 @@
             $select->execute();
 
             $lignes = $select->fetchAll();
-           
-            //var_dump($lignes);
 
             if(sizeof($lignes) == 0){
                 echo 'Aucun MOOC présent';
@@ -82,9 +78,8 @@
                                         <div class="content">
                                             <div class="main">
                                                 <h3 class="name"> '.$lignes[$i]["nom"].' </h3>
-                                                <p class="profession">Jean-Michel Rolland</p>
-                                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> France, Toulon</h5>
-                                                <br><a href="#fakelink" class="btn btn-block btn-md btn-info">Inscription</a> 
+                                                <p class="profession">ISEN Toulon</p>
+                                                <br><br><a href="#fakelink" class="btn btn-block btn-md btn-info">Suivre ce cours</a>  
                                             </div>
                                             <div class="footer">
                                                 <button class="btn btn-simple" onclick="rotateCard(this)">
@@ -95,27 +90,35 @@
                                     </div> <!-- end front panel -->
                                     <div class="back">
                                         <div class="header">
-                                            <h5 class="motto">'.$lignes[$i]["nom"].'</h5>
+                                            <h3 class="motto">'.$lignes[$i]["nom"].'</h3>
                                         </div> 
                                         <div class="content">
                                             <div class="main">
-                                                <h4 class="text-center">Description : </h4>
-                                                <p>'.$lignes[$i]["description"].'</p>
-                                                <h4 class="text-center">Durée</h4>
-                                                <p>'.$lignes[$i]["duree"]. 'heures</p>
-                                                <h4 class="text-center">Prérequis</h4>
-                                                <p>'.$lignes[$i]["prerequis"].'</p>
-                                                <p></p>
+                                                <p>
+                                                    <strong>Description : </strong>
+                                                    <span class="text-center text-justify">'.$lignes[$i]["description"].'</span><br><br>
+                                                    <strong>Durée : </strong>
+                                                    <span class="text-center">'.$lignes[$i]["duree"]. ' heures</span><br><br>
+                                                    <strong>Nombre de chapitres : </strong>
+                                                    <span class="text-center">'.$lignes[$i]["nb_chap"]. '</span><br><br>
+                                                    <strong>Prérequis : </strong>
+                                                    <span class="text-center">'.$lignes[$i]["prerequis"].'</span><br><br>
+                                                    <strong>Professeur : </strong>
+                                                    <span class="text-center">Jean Michel Rolland</span><br><br>
+                                                    <strong>Note : </strong>
+                                                    <span class="text-center">'.$lignes[$i]["note"].'/5</span><br><br>
+                                                </p>
                                             </div>
                                         </div>
+
                                         <div class="footer">
                                             <button class="btn btn-simple" rel="tooltip" title="" onclick="rotateCard(this)" data-original-title="Flip Card">
                                                 <i class="fa fa-reply"></i> Retour
                                             </button>
                                             <div class="social-links text-center">
                                                 <a href="http://www.isen.fr/toulon/accueil/" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
-                                                <a href="http://www.isen.fr/toulon/accueil/" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
                                                 <a href="http://www.isen.fr/toulon/accueil/" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                                                <a href="http://www.isen.fr/toulon/accueil/" class="linkedin"><i class="fa fa-linkedin fa-fw"></i></a>
                                             </div>
                                         </div>
                                     </div> 
