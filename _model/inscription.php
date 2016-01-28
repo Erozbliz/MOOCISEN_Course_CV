@@ -1,5 +1,5 @@
 <?php
-include "_include/connect.inc.php";  /// Connection bdd
+include "../_include/connect.inc.php";  /// Connection bdd
 
 echo "incription.php";
 
@@ -48,7 +48,7 @@ function formValid(){
 
 
  function insertUsertoBDD(){
- 	include "_include/connect.inc.php";
+ 	include "../_include/connect.inc.php";
  	$valSurname = $_POST['surname'];
 	$valName = $_POST['name'];
 	$valPseudo = $_POST['pseudo'];
