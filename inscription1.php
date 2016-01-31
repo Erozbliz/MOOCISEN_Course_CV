@@ -387,6 +387,8 @@ $.validator.addMethod("mailRegex", function(value, element) {
   return this.optional(element) || /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i.test(value);
 });
 
+
+// --------------- Formulaire JqueryValidator ---------
 var form = $("#myform");
 form.validate({
       //prendre le name
@@ -411,7 +413,6 @@ form.validate({
       },
       pseudo: {
           required: true,
-          usernameRegex: true,
           minlength: 2,
       },
       password : {
@@ -451,6 +452,43 @@ form.validate({
 }
 });
 
+// --------------- Login JqueryValidator ---------
+var login = $("#myLogin");
+login.validate({
+      //prendre le name
+      errorElement: 'span',
+      errorClass: 'help-block',
+      highlight: function(element, errorClass, validClass) {
+        $(element).closest('.form-group').addClass("has-error");
+    },
+    unhighlight: function(element, errorClass, validClass) {
+        $(element).closest('.form-group').removeClass("has-error");
+    },
+    rules: {
+        name: {
+          required: true,
+          usernameRegex: true,
+          minlength: 2,
+      },
+      password : {
+          required: true,
+          minlength: 4,
+      },
+      email: {
+          required: true,
+          mailRegex: true,
+          minlength: 3,
+      },
+  },
+  messages: {
+    password : {
+        required: "Password required",
+    },
+    email: {
+        required: "Email required",
+    },
+ }
+});
 
 </script>
 

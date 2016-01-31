@@ -1,0 +1,4 @@
+#Ne pas oublier activer le module rewrite_modul serveur apache
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]

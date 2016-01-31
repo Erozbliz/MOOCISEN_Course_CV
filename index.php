@@ -79,7 +79,7 @@
                                             <div class="main">
                                                 <h3 class="name"> '.$lignes[$i]["nom"].' </h3>
                                                 <p class="profession">ISEN Toulon</p>
-                                                <br><br><a href="#fakelink" class="btn btn-block btn-md btn-info">Suivre ce cours</a>  
+                                                <br><br><a href="'.$lignes[$i]["id_mooc"].'.php" class="btn btn-block btn-md btn-info">Suivre ce cours</a>  
                                             </div>
                                             <div class="footer">
                                                 <button class="btn btn-simple" onclick="rotateCard(this)">
