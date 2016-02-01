@@ -1,0 +1,16 @@
+.search{
+    display:block;
+    width:50%;
+    border-radius: 2px;
+    margin:auto;
+    margin-bottom:30px;
+
+}
+
+.hide{
+    display:none;
+}
+
+.show{
+    display:block;
+}

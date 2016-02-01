@@ -19,7 +19,8 @@
 
     <!-- Custom CSS -->
     <link href="css/logo-nav.css" rel="stylesheet">
-
+    <link href="css/style.css" rel="stylesheet">
+    
     <link href="css/animate.css" rel="stylesheet">
     
     <!-- Boite pour rotation -->
@@ -48,7 +49,10 @@
         </div><br><br>
         <!-- /.container -->
         <div class="container">
-            <div class="col-md-12 ">
+            <div>
+                <input class="search" type="search" placeholder="Trouvez un cours sur pratiquement n'importe quoi" onkeyup="filter()" />
+            </div>
+        <div class="col-md-12 ">
 
         <?php
             include '_include/header.php';
@@ -77,7 +81,7 @@
                                         </div>
                                         <div class="content">
                                             <div class="main">
-                                                <h3 class="name"> '.$lignes[$i]["nom"].' </h3>
+                                                <h3 class="name">'.$lignes[$i]["nom"].'</h3>
                                                 <p class="profession">ISEN Toulon</p>
                                                 <br><br><a href="'.$lignes[$i]["id_mooc"].'.php" class="btn btn-block btn-md btn-info">Suivre ce cours</a>  
                                             </div>
@@ -98,9 +102,9 @@
                                                     <strong>Description : </strong>
                                                     <span class="text-center text-justify">'.$lignes[$i]["description"].'</span><br><br>
                                                     <strong>Durée : </strong>
-                                                    <span class="text-center">'.$lignes[$i]["duree"]. ' heures</span><br><br>
+                                                    <span class="text-center">'.$lignes[$i]["duree"].' heures</span><br><br>
                                                     <strong>Nombre de chapitres : </strong>
-                                                    <span class="text-center">'.$lignes[$i]["nb_chap"]. '</span><br><br>
+                                                    <span class="text-center">'.$lignes[$i]["nb_chap"].'</span><br><br>
                                                     <strong>Prérequis : </strong>
                                                     <span class="text-center">'.$lignes[$i]["prerequis"].'</span><br><br>
                                                     <strong>Professeur : </strong>
@@ -142,17 +146,42 @@
 
     <script type="text/javascript">
 
-    function rotateCard(btn){
-        var $card = $(btn).closest('.card-container');
-        console.log($card);
-        if($card.hasClass('hover')){
-            $card.removeClass('hover');
-        } else {
-            $card.addClass('hover');
+        function rotateCard(btn){
+            var $card = $(btn).closest('.card-container');
+            console.log($card);
+            if($card.hasClass('hover')){
+                $card.removeClass('hover');
+            } else {
+                $card.addClass('hover');
+            }
         }
-    }
-    
-    
+
+        function filter(){
+
+            var chaine = $(".search").val().toLowerCase();
+            console.log(chaine);
+
+            if(chaine.length == 0){
+                $(".name").each(function(){
+                    $(this).parents(".col-md-4").removeClass("hide").addClass("show");
+                });
+            }
+            if (chaine.length > 2){
+                $(".name").each(function(){
+                    
+                    var n = $(this).text().toLowerCase().search(chaine);
+                    if(n != -1){
+                        $(this).parents(".col-md-4").removeClass("hide").addClass("show");
+                    }
+                    else{
+                        $(this).parents(".col-md-4").removeClass("show").addClass("hide");
+                        console.log($(this).text().toLowerCase());
+                    }
+
+                });
+            }
+        }
+        
     </script>
 
 
