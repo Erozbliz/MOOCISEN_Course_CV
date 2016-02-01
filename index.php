@@ -83,7 +83,9 @@
                                             <div class="main">
                                                 <h3 class="name">'.$lignes[$i]["nom"].'</h3>
                                                 <p class="profession">ISEN Toulon</p>
-                                                <br><br><a href="'.$lignes[$i]["id_mooc"].'.php" class="btn btn-block btn-md btn-info">Suivre ce cours</a>  
+												<form action="description.php" method="post">
+													<button name="id" value='.$lignes[$i]["id_mooc"].'  class="btn btn-block btn-md btn-info">Déscription du cours</button>
+												</form>
                                             </div>
                                             <div class="footer">
                                                 <button class="btn btn-simple" onclick="rotateCard(this)">

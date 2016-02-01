@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    include '_include/connect.inc.php';
+?>
 <html lang="en">
 
 <head>
@@ -493,6 +496,36 @@
                 <br />
 
                 <div class="row">
+				
+				
+			<?php
+			
+			$selectChap = $bdd->prepare("SELECT * FROM chapitre");
+            $selectChap->execute();
+
+            $lignesChap = $selectChap->fetchAll();
+			
+			if(sizeof($lignesChap) == 0){
+                echo 'Aucun chapitre présent';
+            }
+			else
+			{
+				echo 'Chapitre Ok';
+				 for($i = 0; $i<sizeof($lignesChap); $i++){
+					 
+					  echo'<div class="content">
+								<div class="main">
+									<h3 class="name"> '.$lignesChap[$i]["nom"].' </h3>
+								</div>
+							</div>';
+						   
+					  
+				 }
+			}
+			
+			
+			
+			 ?>
 
 <!--
                     <div class="col-md-4 col-sm-4 col-xs-12">
