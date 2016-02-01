@@ -26,6 +26,14 @@ function getInfos()
 				<h3 class="name"> Prérequis : '.$lignes[0]["prerequis"].' </h3>
 				<h3 class="name"> Durée estimée: '.$lignes[0]["duree"].' heures </h3>
 				<h3 class="name"> Note : '.$lignes[0]["note"].' / 20 </h3>
+			
+				<div class="col-sm-4 col-sm-offset-4 animated zoomIn">
+					<div class="card-container manual-flip">
+						<form action="mooc.php" method="post">
+							<button name="id" value='.$idMooc.'  class="btn btn-block btn-md btn-info">Accéder au cours</button>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>';
 }

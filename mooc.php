@@ -500,7 +500,16 @@
 				
 			<?php
 			
-			$selectChap = $bdd->prepare("SELECT * FROM chapitre");
+			$valid = 1;
+			 if (isset($_POST['id'])) {
+				$idMooc = $_POST['id'];								
+				//echo $idMooc;
+			}else{
+				$valid = 0;
+				echo'erreur';
+			}
+			
+			$selectChap = $bdd->prepare("SELECT * FROM chapitre WHERE id_mooc = $idMooc");
             $selectChap->execute();
 
             $lignesChap = $selectChap->fetchAll();
@@ -510,17 +519,76 @@
             }
 			else
 			{
-				echo 'Chapitre Ok';
-				 for($i = 0; $i<sizeof($lignesChap); $i++){
+					echo 'Chapitre Ok';
+				for($i = 0; $i<sizeof($lignesChap); $i++)
+				{
 					 
 					  echo'<div class="content">
 								<div class="main">
 									<h3 class="name"> '.$lignesChap[$i]["nom"].' </h3>
 								</div>
 							</div>';
+							$idChap = $lignesChap[$i]["id_chapitre"];
+							$selectExo = $bdd->prepare("SELECT * FROM exercice WHERE id_chapitre = $idChap");
+							$selectExo->execute();
+
+							$lignesExo = $selectExo->fetchAll();
+							if(sizeof($lignesExo) == 0)
+							{
+									echo 'Aucun exercice présent';
+							}
+							else
+							{
+									for($i = 0; $i<sizeof($lignesExo); $i++)
+									{
+										var_dump(sizeof($lignesExo));
+										echo'<div>
+												<h3 class="name"> Exercice n°'.$lignesExo[$i]["numero"].' </h3>
+											</div>';
+										$idExo = $lignesExo[$i]["id_exercice"];
+										var_dump($i);
+										var_dump($idExo);
+										$idQcmOk = $lignesExo[$i]["id_qcm"];
+										$idDragOk = $lignesExo[$i]["id_drag"];
+										if($idQcmOk == 1)
+										{
+											$selectExo = $bdd->prepare("SELECT * FROM qcm WHERE id_exercice = $idExo");
+											$selectExo->execute();
+
+											$lignesExo = $selectExo->fetchAll();
+											var_dump($lignesExo);
+											 echo'<div class="content">
+													<div class="main">
+														<h3 class="name"> '.$lignesExo[$i]["question"].' </h3>
+														
+													</div>
+												</div>';
+											
+										}
+										if($idDragOk == 1)
+										{
+									
+											$selectExo = $bdd->prepare("SELECT * FROM drag WHERE id_exercice = $idExo");
+											$selectExo->execute();
+
+											$lignesExo = $selectExo->fetchAll();
+											var_dump($lignesExo);
+											echo'<div class="content">
+												<div class="main">
+													<h3 class="name"> '.$lignesExo[$i]["reponse"].' </h3>
+													<h3 class="name"> '.$lignesExo[$i]["texte"].' </h3>
+													<h3 class="name"> '.$lignesExo[$i]["indice"].' </h3>
+													
+												</div>
+											</div>';
+									
+										}
+									}
+							}
+							
 						   
 					  
-				 }
+				}
 			}
 			
 			
