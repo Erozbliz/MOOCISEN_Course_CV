@@ -37,6 +37,9 @@
     </head>
 
     <body>
+         <?php
+            include '_include/header.php';
+            ?>
 
         <!-- Page Content -->
         <div class="container">
@@ -46,17 +49,18 @@
                     <p>Voici des MOOCs destinés aux étudiants </p>
                 </div>
             </div>
-        </div><br><br>
+        </div><br>
         <!-- /.container -->
         <div class="container">
             <div>
                 <input class="search" type="search" placeholder=" Rechercher un cours" onkeyup="filter()" />
             </div>
+
              
         <div class="col-md-12 ">
 
         <?php
-            include '_include/header.php';
+            //include '_include/header.php';
 
             $id_mooc;
 
@@ -95,7 +99,7 @@
                                                 <h3 class="name">'.$lignes[$i]["nom"].'</h3>
                                                 <p class="profession">ISEN Toulon</p>
 												<form action="description.php" method="post">
-													<button name="id" value='.$lignes[$i]["id_mooc"].'  class="btn btn-block btn-md btn-info">Déscription du cours</button>
+													<button name="id" value='.$lignes[$i]["id_mooc"].'  class="btn btn-block btn-md btn-info">Description du cours</button>
 												</form>
                                             </div>
                                             <div class="footer">
