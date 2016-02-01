@@ -19,13 +19,13 @@
 
     <!-- Custom CSS -->
     <link href="css/logo-nav.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    
     <link href="css/animate.css" rel="stylesheet">
+   
     
     <!-- Boite pour rotation -->
     <link href="css/rotating-card.css" rel="stylesheet" />
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,12 +50,15 @@
         <!-- /.container -->
         <div class="container">
             <div>
-                <input class="search" type="search" placeholder="Trouvez un cours sur pratiquement n'importe quoi" onkeyup="filter()" />
+                <input class="search" type="search" placeholder=" Rechercher un cours" onkeyup="filter()" />
             </div>
+             
         <div class="col-md-12 ">
 
         <?php
             include '_include/header.php';
+
+            $id_mooc;
 
             $select = $bdd->prepare("SELECT * FROM mooc");
             $select->execute();
@@ -69,6 +72,14 @@
             else{
 
                 for($i = 0; $i<sizeof($lignes); $i++){
+
+                    $id_mooc = $lignes[$i]["id_mooc"];
+
+                    $select2 = $bdd->prepare("SELECT creer.id_mooc,creer.id_enseignant,enseignant.nom,enseignant.prenom FROM enseignant INNER JOIN creer ON enseignant.id_enseignant = creer.id_enseignant INNER JOIN mooc ON mooc.id_mooc = creer.id_mooc WHERE creer.id_mooc = $id_mooc");
+                    $select2->execute();
+
+                    $lignes2 = $select2->fetchAll();
+
                     echo '<div class="col-md-4 col-sm-6 animated zoomIn">
                             <div class="card-container manual-flip">
                                 <div class="card">
@@ -109,8 +120,11 @@
                                                     <span class="text-center">'.$lignes[$i]["nb_chap"].'</span><br><br>
                                                     <strong>Prérequis : </strong>
                                                     <span class="text-center">'.$lignes[$i]["prerequis"].'</span><br><br>
-                                                    <strong>Professeur : </strong>
-                                                    <span class="text-center">Jean Michel Rolland</span><br><br>
+                                                    <strong>Professeur : </strong>';
+                                                    for($j=0;$j<sizeof($lignes2);$j++){
+                                                        echo'<span class="text-center">'.$lignes2[$j]["prenom"].' '.$lignes2[$j]["nom"].'</span><br>';
+                                                    }
+                                                    echo'<br><br>
                                                     <strong>Note : </strong>
                                                     <span class="text-center">'.$lignes[$i]["note"].'/5</span><br><br>
                                                 </p>
@@ -135,9 +149,6 @@
                 }
         ?>
                 
-
-
-
         </div>
     </div>
     <!-- jQuery -->
@@ -168,7 +179,7 @@
                     $(this).parents(".col-md-4").removeClass("hide").addClass("show");
                 });
             }
-            if (chaine.length > 2){
+            if (chaine.length > 1){
                 $(".name").each(function(){
                     
                     var n = $(this).text().toLowerCase().search(chaine);
@@ -183,6 +194,14 @@
                 });
             }
         }
+
+        $('input').focusin(function(){
+            $(this).removeAttr('placeholder');
+        });
+
+        $('input').focusout(function(){
+            $(this).attr('placeholder','Rechercher un cours');
+        });
         
     </script>
 
