@@ -541,15 +541,17 @@
 							{
 									for($i = 0; $i<sizeof($lignesExo); $i++)
 									{
-										var_dump(sizeof($lignesExo));
+										var_dump("size of =".sizeof($lignesExo));
 										echo'<div>
 												<h3 class="name"> Exercice n°'.$lignesExo[$i]["numero"].' </h3>
 											</div>';
 										$idExo = $lignesExo[$i]["id_exercice"];
-										var_dump($i);
-										var_dump($idExo);
+										var_dump("boucle i =".$i);
+										var_dump(" id_exercice =".$idExo);
 										$idQcmOk = $lignesExo[$i]["id_qcm"];
 										$idDragOk = $lignesExo[$i]["id_drag"];
+                                        var_dump("id_qcm  =".$idQcmOk);
+                                        var_dump("id_drag  =".$idQcmOk);
 										if($idQcmOk == 1)
 										{
 											$selectExo = $bdd->prepare("SELECT * FROM qcm WHERE id_exercice = $idExo");
@@ -582,7 +584,9 @@
 												</div>
 											</div>';
 									
-										}
+										}else{
+                                            var_dump("N'est passé dans aucun if");
+                                        }
 									}
 							}
 							

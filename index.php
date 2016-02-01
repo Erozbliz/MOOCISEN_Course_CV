@@ -1,7 +1,7 @@
-<!DOCTYPE html>
 <?php
     include '_include/connect.inc.php';
 ?>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
