@@ -539,20 +539,20 @@
 							}
 							else
 							{
-									for($i = 0; $i<sizeof($lignesExo); $i++)
+									for($j = 0; $j<sizeof($lignesExo); $j++)
 									{
 										var_dump("size of =".sizeof($lignesExo));
 										echo'<div>
-												<h3 class="name"> Exercice n°'.$lignesExo[$i]["numero"].' </h3>
+												<h3 class="name"> Exercice n°'.$lignesExo[$j]["numero"].' </h3>
 											</div>';
-										$idExo = $lignesExo[$i]["id_exercice"];
-										var_dump("boucle i =".$i);
+										$idExo = $lignesExo[$j]["id_exercice"];
+										var_dump("boucle i =".$j);
 										var_dump(" id_exercice =".$idExo);
-										$idQcmOk = $lignesExo[$i]["id_qcm"];
-										$idDragOk = $lignesExo[$i]["id_drag"];
+										$idQcmOk = $lignesExo[$j]["id_qcm"];
+										$idDragOk = $lignesExo[$j]["id_drag"];
                                         var_dump("id_qcm  =".$idQcmOk);
-                                        var_dump("id_drag  =".$idQcmOk);
-										if($idQcmOk == 1)
+                                        var_dump("id_drag  =".$idDragOk);
+										if($idQcmOk != NULL && $idDragOk == NULL)
 										{
 											$selectExo = $bdd->prepare("SELECT * FROM qcm WHERE id_exercice = $idExo");
 											$selectExo->execute();
@@ -561,13 +561,13 @@
 											var_dump($lignesExo);
 											 echo'<div class="content">
 													<div class="main">
-														<h3 class="name"> '.$lignesExo[$i]["question"].' </h3>
+														<h3 class="name"> '.$lignesExo[$j]["question"].' </h3>
 														
 													</div>
 												</div>';
 											
 										}
-										if($idDragOk == 1)
+										else if($idQcmOk == NULL && $idDragOk != NULL)
 										{
 									
 											$selectExo = $bdd->prepare("SELECT * FROM drag WHERE id_exercice = $idExo");
@@ -577,9 +577,9 @@
 											var_dump($lignesExo);
 											echo'<div class="content">
 												<div class="main">
-													<h3 class="name"> '.$lignesExo[$i]["reponse"].' </h3>
-													<h3 class="name"> '.$lignesExo[$i]["texte"].' </h3>
-													<h3 class="name"> '.$lignesExo[$i]["indice"].' </h3>
+													<h3 class="name"> '.$lignesExo[$j]["reponse"].' </h3>
+													<h3 class="name"> '.$lignesExo[$j]["texte"].' </h3>
+													<h3 class="name"> '.$lignesExo[$j]["indice"].' </h3>
 													
 												</div>
 											</div>';
