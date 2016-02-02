@@ -541,15 +541,29 @@
 							{
 									for($j = 0; $j<sizeof($lignesExo); $j++)
 									{
+<<<<<<< HEAD
 										//var_dump(sizeof($lignesExo));
+=======
+										var_dump("size of =".sizeof($lignesExo));
+>>>>>>> origin/master
 										echo'<div>
 												<h3 class="name"> Exercice n°'.$lignesExo[$j]["numero"].' </h3>
 											</div>';
+<<<<<<< HEAD
 										$idExo = $lignesExo[$j]["id_exercice"];
 										var_dump($j);
 										var_dump($idExo);
 										$idQcmOk = $lignesExo[$j]["id_qcm"];
 										$idDragOk = $lignesExo[$j]["id_drag"];
+=======
+										$idExo = $lignesExo[$i]["id_exercice"];
+										var_dump("boucle i =".$i);
+										var_dump(" id_exercice =".$idExo);
+										$idQcmOk = $lignesExo[$i]["id_qcm"];
+										$idDragOk = $lignesExo[$i]["id_drag"];
+                                        var_dump("id_qcm  =".$idQcmOk);
+                                        var_dump("id_drag  =".$idQcmOk);
+>>>>>>> origin/master
 										if($idQcmOk == 1)
 										{
 											
@@ -582,10 +596,16 @@
 												</div>
 											</div>';
 									
+<<<<<<< HEAD
 										}
 										var_dump($j	);
 								
 												
+=======
+										}else{
+                                            var_dump("N'est passé dans aucun if");
+                                        }
+>>>>>>> origin/master
 									}
 							}
 							
