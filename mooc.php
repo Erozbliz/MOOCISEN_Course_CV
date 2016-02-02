@@ -539,23 +539,12 @@
 							}
 							else
 							{
-									for($j = 0; $j<sizeof($lignesExo); $j++)
+									for($i = 0; $i<sizeof($lignesExo); $i++)
 									{
-<<<<<<< HEAD
-										//var_dump(sizeof($lignesExo));
-=======
 										var_dump("size of =".sizeof($lignesExo));
->>>>>>> origin/master
 										echo'<div>
-												<h3 class="name"> Exercice n°'.$lignesExo[$j]["numero"].' </h3>
+												<h3 class="name"> Exercice n°'.$lignesExo[$i]["numero"].' </h3>
 											</div>';
-<<<<<<< HEAD
-										$idExo = $lignesExo[$j]["id_exercice"];
-										var_dump($j);
-										var_dump($idExo);
-										$idQcmOk = $lignesExo[$j]["id_qcm"];
-										$idDragOk = $lignesExo[$j]["id_drag"];
-=======
 										$idExo = $lignesExo[$i]["id_exercice"];
 										var_dump("boucle i =".$i);
 										var_dump(" id_exercice =".$idExo);
@@ -563,17 +552,16 @@
 										$idDragOk = $lignesExo[$i]["id_drag"];
                                         var_dump("id_qcm  =".$idQcmOk);
                                         var_dump("id_drag  =".$idQcmOk);
->>>>>>> origin/master
 										if($idQcmOk == 1)
 										{
-											
 											$selectExo = $bdd->prepare("SELECT * FROM qcm WHERE id_exercice = $idExo");
 											$selectExo->execute();
 
 											$lignesExo = $selectExo->fetchAll();
+											var_dump($lignesExo);
 											 echo'<div class="content">
 													<div class="main">
-														<h3 class="name"> '.$lignesExo[$j]["question"].' </h3>
+														<h3 class="name"> '.$lignesExo[$i]["question"].' </h3>
 														
 													</div>
 												</div>';
@@ -589,23 +577,16 @@
 											var_dump($lignesExo);
 											echo'<div class="content">
 												<div class="main">
-													<h3 class="name"> '.$lignesExo[$j]["reponse"].' </h3>
-													<h3 class="name"> '.$lignesExo[$j]["texte"].' </h3>
-													<h3 class="name"> '.$lignesExo[$j]["indice"].' </h3>
+													<h3 class="name"> '.$lignesExo[$i]["reponse"].' </h3>
+													<h3 class="name"> '.$lignesExo[$i]["texte"].' </h3>
+													<h3 class="name"> '.$lignesExo[$i]["indice"].' </h3>
 													
 												</div>
 											</div>';
 									
-<<<<<<< HEAD
-										}
-										var_dump($j	);
-								
-												
-=======
 										}else{
                                             var_dump("N'est passé dans aucun if");
                                         }
->>>>>>> origin/master
 									}
 							}
 							
