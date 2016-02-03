@@ -45,7 +45,7 @@ function insertUsertoBDD(){
  	include "../_include/connect.inc.php";
 	$valEmail = $_POST['email'];
 	try { 
-		$requete_prepare= $bdd->prepare("INSERT INTO user(reset_password) VALUES('$valSurname')"); // on prépare notre requête
+		$requete_prepare= $bdd->prepare("INSERT INTO user(reset_password) VALUES('$valEmail')"); // on prépare notre requête
 		$requete_prepare->execute();
 		echo "->OK";
 	} catch (Exception $e) { 
