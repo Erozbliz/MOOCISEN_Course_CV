@@ -73,6 +73,7 @@
                                 echo $_GET['erreur'];
                             } ?>
                         </form>
+                        <a href="request_password"><button type="button" class="btn btn-default btn-xs  pull-right"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Mot de passe oublié</button></a>
                      </div>
                      <div class="tab-pane fade" id="create">
                         <form action="_model/inscription.php" method="post" id="myform">

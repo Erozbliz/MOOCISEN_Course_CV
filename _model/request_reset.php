@@ -77,7 +77,7 @@ if($verifMail==0){
 	echo '<br>Mail inconnu';
 }else if($verif==1){
 	$urlResetPwd=updateIdResetPwd();
-	echo "<br>Url a envoyer = mooc_v2/reset_password?id=".$urlResetPwd;
+	echo "<br>Url a envoyer = reset_password?id=".$urlResetPwd;
 }
 else{
 	echo '<br>wrong form';

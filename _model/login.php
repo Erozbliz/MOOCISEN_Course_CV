@@ -32,7 +32,7 @@ function formValid(){
 	$valPassword = $_POST['password'];
 	$valPassword = md5($valPassword);
 	try { 
-	$requete_prepare = $bdd->prepare("SELECT * FROM user where email='$email'"); // on prépare notre req
+	$requete_prepare = $bdd->prepare("SELECT * FROM user WHERE email='$email'"); // on prépare notre req
 	$requete_prepare->execute();
 	$result = $requete_prepare->fetchAll( PDO::FETCH_ASSOC );
 	} catch (Exception $e) { 

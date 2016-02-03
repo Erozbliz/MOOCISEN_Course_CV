@@ -58,17 +58,15 @@
                   <hr>
                   <div id="myTabContent" class="tab-content">
                      <div class="tab-pane active in" id="requestPwd">
-                        <form action="_model/update_pwd.php" method="post" id="myLogin">
+                        <form action="_model/request_reset.php" method="post" id="myLogin">
                            <fieldset class="form-group">
-                              <?php if(isset($_GET['id'])){
-                                $id=$_GET['id'];
-                                echo ('<input type="hidden" name="id" value="'.$id.'">');
-                              } 
-                              ?>
-                              <label for="exampleInputPassword1">Nouveau mot de passe</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+                              <label for="exampleInputEmail1">Email address</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email">
                            </fieldset><br>
-                           <button type="submit" class="btn btn-primary">Modifier</button><br>
+                           <button type="submit" class="btn btn-primary">Envoyer</button><br>
+                           <?php  if(isset($_GET['erreur'])) {
+                                echo $_GET['erreur'];
+                            } ?>
                         </form>
                      </div>
                   </div>
