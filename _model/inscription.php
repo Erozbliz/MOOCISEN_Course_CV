@@ -45,9 +45,29 @@ function formValid(){
 	}
 }
 
+//Evite d'avoir 2 mail identique en bdd ok=1 ko=0
+function emailExist(){
+	include "../_include/connect.inc.php";
+	$verif = 1; //existant par defaut
+	$email = $_POST['email'];
+	try { 
+	$requete_prepare = $bdd->prepare("SELECT * FROM user where email='$email'"); // on prépare notre req
+	$requete_prepare->execute();
+	$result = $requete_prepare->fetchAll( PDO::FETCH_ASSOC );
+	} catch (Exception $e) { 
+		echo $e->errorMessage();
+  		echo "->erreur";
+	}
+
+	if (empty($result)){
+		$verif = 0;
+	}
+	return $verif;
+}
 
 
- function insertUsertoBDD(){
+
+function insertUsertoBDD(){
  	include "../_include/connect.inc.php";
  	$valSurname = $_POST['surname'];
 	$valName = $_POST['name'];
@@ -66,8 +86,11 @@ function formValid(){
 	}
  }
 
+$verifMail = emailExist();
 $verif = formValid();
-if($verif==1){
+if($verifMail==1){
+	echo '<br>Mail déjà present';
+}else if($verif==1){
 	insertUsertoBDD();
 }
 else{

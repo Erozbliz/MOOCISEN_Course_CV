@@ -68,7 +68,10 @@
                               <label for="exampleInputPassword1">Mot de passe</label>
                               <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Mot de passe">
                            </fieldset>
-                           <button type="submit" class="btn btn-primary">Connexion</button>
+                           <button type="submit" class="btn btn-primary">Connexion</button><br>
+                           <?php  if(isset($_GET['erreur'])) {
+                                echo $_GET['erreur'];
+                            } ?>
                         </form>
                      </div>
                      <div class="tab-pane fade" id="create">
