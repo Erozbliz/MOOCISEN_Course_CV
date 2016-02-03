@@ -5,9 +5,9 @@
 MOOC
 ## Installation
 ->Ne pas oublier la BDD
-database name = mooc
+database name = mooc<br>
 ->Ne pas oublier d'activer le module apache : rewrite_module
-(Car utilisation du .htcaccess)
+(Car utilisation du .htcaccess)<br>
 
 ## Usage
 live version en cours
