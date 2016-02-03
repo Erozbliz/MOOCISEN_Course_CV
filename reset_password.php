@@ -62,9 +62,11 @@
                            <fieldset class="form-group">
                               <?php if(isset($_GET['id'])){
                                 $id=$_GET['id'];
-                                echo ('<input type="hidden" name="id" value="'.$id.'">');
+                                echo ('<span class="label label-default pull-right"><span class="glyphicon glyphicon-lock"></span>  '.$id.'</span>');
+                                echo ('<input type="hidden" name="id" value="'.$id.'">'); 
                               } 
                               ?>
+                              
                               <label for="exampleInputPassword1">Nouveau mot de passe</label>
                               <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
                            </fieldset><br>
