@@ -70,6 +70,29 @@ function updateIdResetPwd(){
  }
 
 
+function sendEmail($urlLink){
+	// Check for empty fields
+	if(empty($_POST['email']))
+	{
+		echo "Erreur pas de mail";
+		return false;
+	}
+	$name = "MOOC Mot de passe";
+	$email_address = "olivier.colombies@gmail.com";
+	$urlLink = $urlLink;
+	$message = "A Bientot";
+	$email_address = '"$email_address"';
+		
+	// Create the email and send the message
+	$to = "$email_address"; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+	$email_subject = "Website Contact :  $name";
+	$email_body = "Voici votre le lien pour le nouveau mot de passe\n\n"."\n\nEmail: $email_address\n\nUrl: $urlLink\n\n$message";
+	$headers = "From: stockage.harddrive@gmail.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+	$headers .= "Reply-To: $email_address";	
+	//mail($to,$email_subject,$email_body,$headers);
+	return true;		
+}
+
 
 $verifMail = emailExist();
 $verif = formValid();
@@ -78,6 +101,7 @@ if($verifMail==0){
 }else if($verif==1){
 	$urlResetPwd=updateIdResetPwd();
 	echo "<br>Url a envoyer = reset_password?id=".$urlResetPwd;
+	sendEmail($urlResetPwd); // envoie de l'email
 }
 else{
 	echo '<br>wrong form';
