@@ -18,10 +18,10 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <link href="css/icheck/flat/blue.css" rel="stylesheet">
     <link href="css/logo-nav.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-   
-    
+ 
     <!-- Boite pour rotation -->
     <link href="css/rotating-card.css" rel="stylesheet" />
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -54,9 +54,14 @@
         <div class="container">
             <div>
                 <input class="search" type="search" placeholder=" Rechercher un cours" onkeyup="filter()" />
+                <label>
+                    <input type="radio" class="flat" checked  id="nom" onclick="Chkbox(this.id);filter();"> Nom
+                </label>
+                <label>
+                    <input type="radio" class="flat"  id="matiere" onclick="Chkbox(this.id);filter();"> Matière
+                </label>
             </div>
 
-             
         <div class="col-md-12 ">
 
         <?php
@@ -98,9 +103,11 @@
                                             <div class="main">
                                                 <h3 class="name">'.$lignes[$i]["nom"].'</h3>
                                                 <p class="profession">ISEN Toulon</p>
+                                                <p class="matiere">'.$lignes[$i]["matiere"].'</p>
 												<form action="description.php" method="post">
 													<button name="id" value='.$lignes[$i]["id_mooc"].'  class="btn btn-block btn-md btn-info">Description du cours</button>
 												</form>
+                
                                             </div>
                                             <div class="footer">
                                                 <button class="btn btn-simple" onclick="rotateCard(this)">
@@ -129,7 +136,7 @@
                                                         echo'<span class="text-center">'.$lignes2[$j]["prenom"].' '.$lignes2[$j]["nom"].'</span><br>';
                                                     }
                                                     echo'<br><br>
-                                                    <strong>Note : </strong>
+                                                    <strong>Matière : </strong>
                                                     <span class="text-center">'.$lignes[$i]["note"].'/5</span><br><br>
                                                 </p>
                                             </div>
@@ -173,6 +180,19 @@
             }
         }
 
+        function Chkbox(id){
+            switch(id){
+                case "nom" :
+                    document.getElementById("nom").checked = true;
+                    document.getElementById("matiere").checked = false;
+                break;
+                case "matiere" :
+                    document.getElementById("nom").checked = false;
+                    document.getElementById("matiere").checked = true;
+                break;
+            }
+        }
+
         function filter(){
 
             var chaine = $(".search").val().toLowerCase();
@@ -184,18 +204,32 @@
                 });
             }
             if (chaine.length > 1){
-                $(".name").each(function(){
-                    
-                    var n = $(this).text().toLowerCase().search(chaine);
-                    if(n != -1){
-                        $(this).parents(".col-md-4").removeClass("hide").addClass("show");
-                    }
-                    else{
-                        $(this).parents(".col-md-4").removeClass("show").addClass("hide");
-                        console.log($(this).text().toLowerCase());
-                    }
-
-                });
+                if(document.getElementById("nom").checked == true){
+                    $(".name").each(function(){
+                        
+                        var n = $(this).text().toLowerCase().search(chaine);
+                        if(n != -1){
+                            $(this).parents(".col-md-4").removeClass("hide").addClass("show");
+                        }
+                        else{
+                            $(this).parents(".col-md-4").removeClass("show").addClass("hide");
+                            console.log($(this).text().toLowerCase());
+                        }
+                    });
+                }
+                else{
+                    $(".matiere").each(function(){
+                        
+                        var n = $(this).text().toLowerCase().search(chaine);
+                        if(n != -1){
+                            $(this).parents(".col-md-4").removeClass("hide").addClass("show");
+                        }
+                        else{
+                            $(this).parents(".col-md-4").removeClass("show").addClass("hide");
+                            console.log($(this).text().toLowerCase());
+                        }
+                    });
+                }
             }
         }
 

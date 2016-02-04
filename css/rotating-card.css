@@ -141,7 +141,12 @@ body {
     color: #999999;
     text-align: center;
     margin-bottom: 20px;
+}.card .matiere{
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
 }
+
 .card .footer {
     border-top: 1px solid #EEEEEE;
     color: #999999;
