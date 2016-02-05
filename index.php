@@ -54,12 +54,10 @@
         <div class="container">
             <div>
                 <input class="search" type="search" placeholder=" Rechercher un cours" onkeyup="filter()" />
-                <label>
-                    <input type="radio" class="flat" checked  id="nom" onclick="Chkbox(this.id);filter();"> Nom
-                </label>
-                <label>
-                    <input type="radio" class="flat"  id="matiere" onclick="Chkbox(this.id);filter();"> Matière
-                </label>
+                    <p>
+                        <input type="radio" class="flat" checked  id="nom" onclick="Chkbox(this.id);filter();"> Nom
+                        <input type="radio" class="flat"  id="matiere" onclick="Chkbox(this.id);filter();"> Matière
+                    </p>
             </div>
 
         <div class="col-md-12 ">
