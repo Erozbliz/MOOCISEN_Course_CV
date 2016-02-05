@@ -538,9 +538,10 @@
 									echo 'Aucun exercice présent';
 							}
 							else
-							{
+							{		
 									for($j = 0; $j<sizeof($lignesExo); $j++)
 									{
+										var_dump($j);
 										var_dump("size of =".sizeof($lignesExo));
 										echo'<div>
 												<h3 class="name"> Exercice n°'.$lignesExo[$j]["numero"].' </h3>
@@ -554,14 +555,15 @@
                                         var_dump("id_drag  =".$idDragOk);
 										if($idQcmOk != NULL && $idDragOk == NULL)
 										{
-											$selectExo = $bdd->prepare("SELECT * FROM qcm WHERE id_exercice = $idExo");
-											$selectExo->execute();
+											$iQcm = 0;
+											$selectqcm = $bdd->prepare("SELECT * FROM qcm WHERE id_exercice = $idExo");
+											$selectqcm->execute();
 
-											$lignesExo = $selectExo->fetchAll();
+											$lignesQcm = $selectqcm->fetchAll();
 											var_dump($lignesExo);
 											 echo'<div class="content">
 													<div class="main">
-														<h3 class="name"> '.$lignesExo[$j]["question"].' </h3>
+														<h3 class="name"> '.$lignesQcm[$iQcm]["question"].' </h3>
 														
 													</div>
 												</div>';
@@ -569,17 +571,17 @@
 										}
 										else if($idQcmOk == NULL && $idDragOk != NULL)
 										{
-									
-											$selectExo = $bdd->prepare("SELECT * FROM drag WHERE id_exercice = $idExo");
-											$selectExo->execute();
+											$iDrag = 0;
+											$selectDrag = $bdd->prepare("SELECT * FROM drag WHERE id_exercice = $idExo");
+											$selectDrag->execute();
 
-											$lignesExo = $selectExo->fetchAll();
+											$lignesDrag = $selectDrag->fetchAll();
 											var_dump($lignesExo);
 											echo'<div class="content">
 												<div class="main">
-													<h3 class="name"> '.$lignesExo[$j]["reponse"].' </h3>
-													<h3 class="name"> '.$lignesExo[$j]["texte"].' </h3>
-													<h3 class="name"> '.$lignesExo[$j]["indice"].' </h3>
+													<h3 class="name"> '.$lignesDrag[$iDrag]["reponse"].' </h3>
+													<h3 class="name"> '.$lignesDrag[$iDrag]["texte"].' </h3>
+													<h3 class="name"> '.$lignesDrag[$iDrag]["indice"].' </h3>
 													
 												</div>
 											</div>';
