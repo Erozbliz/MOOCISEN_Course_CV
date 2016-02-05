@@ -39,7 +39,18 @@
     <body>
          <?php
             include '_include/header.php';
-            ?>
+        ?>
+
+           <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Présentation</h1>
+                    <p>Voici des MOOCs destinés aux étudiants </p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/lX7kYDRIZO4" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div><br>
 
         <!-- Page Content -->
         <div class="container">
