@@ -517,7 +517,6 @@
             if(sizeof($lignesChap) == 0){
                 echo 'Aucun chapitre présent';
             }
-<<<<<<< HEAD
             else
             {
                     echo 'Chapitre Ok';
@@ -588,78 +587,6 @@
                                             </div>';
                                    
                                         }else{
-=======
-			else
-			{
-					echo 'Chapitre Ok';
-				for($i = 0; $i<sizeof($lignesChap); $i++)
-				{
-					 
-					  echo'<div class="content">
-								<div class="main">
-									<h3 class="name"> '.$lignesChap[$i]["nom"].' </h3>
-								</div>
-							</div>';
-							$idChap = $lignesChap[$i]["id_chapitre"];
-							$selectExo = $bdd->prepare("SELECT * FROM exercice WHERE id_chapitre = $idChap");
-							$selectExo->execute();
-
-							$lignesExo = $selectExo->fetchAll();
-							if(sizeof($lignesExo) == 0)
-							{
-									echo 'Aucun exercice présent';
-							}
-							else
-							{		
-									for($j = 0; $j<sizeof($lignesExo); $j++)
-									{
-										var_dump($j);
-										var_dump("size of =".sizeof($lignesExo));
-										echo'<div>
-												<h3 class="name"> Exercice n°'.$lignesExo[$j]["numero"].' </h3>
-											</div>';
-										$idExo = $lignesExo[$j]["id_exercice"];
-										var_dump("boucle i =".$j);
-										var_dump(" id_exercice =".$idExo);
-										$idQcmOk = $lignesExo[$j]["id_qcm"];
-										$idDragOk = $lignesExo[$j]["id_drag"];
-                                        var_dump("id_qcm  =".$idQcmOk);
-                                        var_dump("id_drag  =".$idDragOk);
-										if($idQcmOk != NULL && $idDragOk == NULL)
-										{
-											$iQcm = 0;
-											$selectqcm = $bdd->prepare("SELECT * FROM qcm WHERE id_exercice = $idExo");
-											$selectqcm->execute();
-
-											$lignesQcm = $selectqcm->fetchAll();
-											var_dump($lignesExo);
-											 echo'<div class="content">
-													<div class="main">
-														<h3 class="name"> '.$lignesQcm[$iQcm]["question"].' </h3>
-														
-													</div>
-												</div>';
-											
-										}
-										else if($idQcmOk == NULL && $idDragOk != NULL)
-										{
-											$iDrag = 0;
-											$selectDrag = $bdd->prepare("SELECT * FROM drag WHERE id_exercice = $idExo");
-											$selectDrag->execute();
-
-											$lignesDrag = $selectDrag->fetchAll();
-											var_dump($lignesExo);
-											echo'<div class="content">
-												<div class="main">
-													<h3 class="name"> '.$lignesDrag[$iDrag]["reponse"].' </h3>
-													<h3 class="name"> '.$lignesDrag[$iDrag]["texte"].' </h3>
-													<h3 class="name"> '.$lignesDrag[$iDrag]["indice"].' </h3>
-													
-												</div>
-											</div>';
-									
-										}else{
->>>>>>> origin/master
                                             var_dump("N'est passé dans aucun if");
                                         }
                                     }
