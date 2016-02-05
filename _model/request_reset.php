@@ -70,6 +70,52 @@ function updateIdResetPwd(){
  }
 
 
+function sendEmail($urlLink){
+	// Check for empty fields
+	if(empty($_POST['email']))
+	{
+		echo "Erreur pas de mail";
+		return false;
+	}
+	$name = "MOOC Mot de passe";
+	$email_address = 'erozbliz@hotmail.com';
+	$urlLink = $urlLink;
+	$message = "A Bientot";
+	//$email_address = '"$email_address"';
+		
+	// Create the email and send the message
+	$to = "$email_address"; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+	$email_subject = "Website Contact :  $name";
+	//$email_body = "Voici votre le lien pour le nouveau mot de passe\n\n"."\n\nEmail: <a href='mooc/reset_password?id=$email_address'>$email_address</a>\n\nUrl: $urlLink\n\n$message";
+	 $email_body = '
+     <html>
+      <head>
+       <title>Voici votre le lien pour le nouveau mot de passe</title>
+      </head>
+      <body>
+       <p>Voici votre le lien pour le nouveau mot de passe</p>
+       Email : '.$email_address.'<br>
+       URL: <a href=mooc/reset_password?id='.$urlLink.'>mooc/reset_password?'.$urlLink.'</a> <br>
+       '.$message.' <br>
+      </body>
+     </html>
+     ';
+	$headers = "From: mooc@isen.fr\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+	$headers .= "Reply-To: $email_address";	
+	//$email_body->isHTML(true);
+	try{
+		mail($to,$email_subject,$email_body,$headers);
+	}
+	catch(Exception $Excep){
+		echo $e->errorMessage();
+  		echo "->erreur mail";
+	}
+	
+	return true;		
+}
+
 
 $verifMail = emailExist();
 $verif = formValid();
@@ -78,6 +124,7 @@ if($verifMail==0){
 }else if($verif==1){
 	$urlResetPwd=updateIdResetPwd();
 	echo "<br>Url a envoyer = reset_password?id=".$urlResetPwd;
+	sendEmail($urlResetPwd); // envoie de l'email
 }
 else{
 	echo '<br>wrong form';

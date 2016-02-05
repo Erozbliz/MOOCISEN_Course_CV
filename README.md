@@ -4,13 +4,19 @@
 # Projet
 MOOC
 ## Installation
-->Ne pas oublier la BDD
+->Ne pas oublier la BDD<br>
 database name = mooc<br>
-->Ne pas oublier d'activer le module apache : rewrite_module
+->Ne pas oublier d'activer le module apache : rewrite_module<br>
 (Car utilisation du .htcaccess)<br>
+->Supprimer les tables <br>
+Cocher les cases puis faire supprimer et décocher "Vérification des clés étrangères : (Activée)"<br>
 
 ## Usage
 live version en cours
+
+## Usage
+-> Sync pour mettre à jour en local<br>
+-> Commit puis faire Sync pour faire pour mettre sur github <br>
 
 
 
