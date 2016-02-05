@@ -587,7 +587,8 @@
 											</div>';
 									
 										}else{
-                                            var_dump("N'est passé dans aucun if");
+                                            var_dump("N'est passé dans aucun if"); // c'est un commentaire
+											
                                         }
 									}
 							}
