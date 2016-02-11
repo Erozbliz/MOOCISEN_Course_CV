@@ -1,0 +1,16 @@
+/* Avoir des vidéo responsive */
+.videocontainer{
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  position: relative;
+}
+.videocontainer.r1{
+  padding-bottom: 100%;
+}
+.videocontainer iframe, .videocontainer embed, .videocontainer object{
+  width: 100%!important; height: 100%!important;
+  position: absolute;
+  top: 0; left: 0;
+}

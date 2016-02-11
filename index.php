@@ -21,6 +21,7 @@
     <link href="css/icheck/flat/blue.css" rel="stylesheet">
     <link href="css/logo-nav.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
+    <link href="css/iframe-responsive.css" rel="stylesheet">
  
     <!-- Boite pour rotation -->
     <link href="css/rotating-card.css" rel="stylesheet" />
@@ -47,7 +48,10 @@
                 <div class="col-lg-12">
                     <h1>Présentation</h1>
                     <p>Voici des MOOCs destinés aux étudiants </p>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/lX7kYDRIZO4" frameborder="0" allowfullscreen></iframe>
+
+                </div>
+                <div class="col-md-2 col-md-offset-2">
+                    <iframe width="728" height="410" src="https://www.youtube.com/embed/lX7kYDRIZO4" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div><br>
@@ -173,6 +177,34 @@
                 
         </div>
     </div>
+    <br>
+    <div class="container">
+        <div class="well">
+            <div id="disqus_thread"></div>
+        </div>
+    </div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            /*
+            var disqus_config = function () {
+                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() {  // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                
+                s.src = '//mooccv.disqus.com/embed.js';
+                
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>;</noscript>
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
