@@ -48,10 +48,10 @@
                 <div class="col-lg-12">
                     <h1>Présentation</h1>
                     <p>Voici des MOOCs destinés aux étudiants </p>
-
-                </div>
-                <div class="col-md-2 col-md-offset-2">
-                    <iframe width="728" height="410" src="https://www.youtube.com/embed/lX7kYDRIZO4" frameborder="0" allowfullscreen></iframe>
+                    <!-- iframe-responsive.css full css -->
+                    <div class="videocontainer"> 
+                     <iframe src="https://www.youtube.com/embed/lX7kYDRIZO4" frameborder="0" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div><br>
