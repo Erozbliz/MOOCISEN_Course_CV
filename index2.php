@@ -21,7 +21,6 @@
     <link href="css/icheck/flat/blue.css" rel="stylesheet">
     <link href="css/logo-nav.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-    <link href="css/iframe-responsive.css" rel="stylesheet">
  
     <!-- Boite pour rotation -->
     <link href="css/rotating-card.css" rel="stylesheet" />
@@ -40,21 +39,7 @@
     <body>
          <?php
             include '_include/header.php';
-        ?>
-
-           <!-- Page Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Présentation</h1>
-                    <p>Voici des MOOCs destinés aux étudiants </p>
-                    <!-- iframe-responsive.css full css -->
-                    <div class="videocontainer"> 
-                     <iframe src="https://www.youtube.com/embed/lX7kYDRIZO4" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div><br>
+            ?>
 
         <!-- Page Content -->
         <div class="container">
@@ -68,13 +53,23 @@
         <!-- /.container -->
         <div class="container">
             <div>
-                <input class="search" type="search" placeholder=" Rechercher un cours" onkeyup="filter()" />
-                <label>
-                    <input type="radio" class="flat" checked  id="nom" onclick="Chkbox(this.id);filter();"> Nom
-                </label>
-                <label>
-                    <input type="radio" class="flat"  id="matiere" onclick="Chkbox(this.id);filter();"> Matière
-                </label>
+                 <?php
+
+                 $select3 = $bdd->prepare("SELECT DISTINCT matiere FROM mooc");
+                 $select3->execute();
+
+                 $lignes3 = $select3->fetchAll();
+
+                 //var_dump($lignes3);
+
+                 for($k = 0; $k<sizeof($lignes3); $k++){
+
+                    echo'
+                        <input type="checkbox" class="subject" value='.$lignes3[$k]["matiere"].' onclick="filter2();"/>
+                        <label>'.$lignes3[$k]["matiere"].'</label>';
+                }
+
+                ?>
             </div>
 
         <div class="col-md-12 ">
@@ -177,35 +172,6 @@
                 
         </div>
     </div>
-    <br>
-    <div class="container">
-        <div class="well">
-            <div id="disqus_thread"></div>
-        </div>
-    </div>
-        <script>
-            /**
-             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-             */
-            
-            var disqus_config = function () {
-                //alert(window.location.href);
-                this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            
-            (function() {  // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                
-                s.src = '//mooccv.disqus.com/embed.js';
-                
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>;</noscript>
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -224,57 +190,35 @@
             }
         }
 
-        function Chkbox(id){
-            switch(id){
-                case "nom" :
-                    document.getElementById("nom").checked = true;
-                    document.getElementById("matiere").checked = false;
-                break;
-                case "matiere" :
-                    document.getElementById("nom").checked = false;
-                    document.getElementById("matiere").checked = true;
-                break;
-            }
-        }
 
-        function filter(){
+        function filter2(){
 
-            var chaine = $(".search").val().toLowerCase();
-            console.log(chaine);
-
-            if(chaine.length == 0){
-                $(".name").each(function(){
-                    $(this).parents(".col-md-4").removeClass("hide").addClass("show");
-                });
-            }
-            if (chaine.length > 1){
-                if(document.getElementById("nom").checked == true){
-                    $(".name").each(function(){
-                        
-                        var n = $(this).text().toLowerCase().search(chaine);
-                        if(n != -1){
-                            $(this).parents(".col-md-4").removeClass("hide").addClass("show");
-                        }
-                        else{
-                            $(this).parents(".col-md-4").removeClass("show").addClass("hide");
-                            console.log($(this).text().toLowerCase());
-                        }
-                    });
+            var valeurs = [];
+            $("input[type=checkbox]").each(function(){
+                if($(this).is(":checked")){
+                    valeurs.push(($(this)).next('label').text());
+                    console.log(valeurs);
                 }
+            });
+
+            $(".matiere").each(function(){
+                var matiere = $(this).text();
+
+                if(valeurs.length == 0){
+                   $(this).parents(".col-md-4").removeClass("hide").addClass("show"); 
+                }
+
                 else{
-                    $(".matiere").each(function(){
-                        
-                        var n = $(this).text().toLowerCase().search(chaine);
-                        if(n != -1){
+
+                    $(this).parents(".col-md-4").removeClass("show").addClass("hide");
+
+                    for(l=0;l<valeurs.length;l++){
+                        if(matiere == valeurs[l]){
                             $(this).parents(".col-md-4").removeClass("hide").addClass("show");
                         }
-                        else{
-                            $(this).parents(".col-md-4").removeClass("show").addClass("hide");
-                            console.log($(this).text().toLowerCase());
-                        }
-                    });
+                    }
                 }
-            }
+            });
         }
 
         $('input').focusin(function(){

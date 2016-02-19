@@ -3,63 +3,63 @@
     include '_include/connect.inc.php';
 ?>
 <html lang="en">
- 
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+
     <title>MOOC chapitre </title>
- 
+
     <!-- Bootstrap core CSS -->
- 
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
- 
+
     <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
- 
+
     <!-- Custom styling plus plugins -->
     <link href="css/custom.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.1.css" />
     <link href="css/icheck/flat/green.css" rel="stylesheet" />
     <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />
- 
+
     <script src="js/jquery.min.js"></script>
     <script src="js/nprogress.js"></script>
     <script>
         NProgress.start();
     </script>
-   
+    
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
         <![endif]-->
- 
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
- 
+
 </head>
- 
- 
+
+
 <body class="nav-md">
- 
+
     <div class="container body">
- 
- 
+
+
         <div class="main_container">
- 
+
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
- 
+
                     <div class="navbar nav_title" style="border: 0;">
                         <a href="index.php" class="site_title"><i class="glyphicon glyphicon-education"></i> <span>MOOCs</span></a>
                     </div>
                     <div class="clearfix"></div>
- 
+
                     <!-- menu prile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
@@ -71,12 +71,12 @@
                         </div>
                     </div>
                     <!-- /menu prile quick info -->
- 
+
                     <br />
- 
+
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
- 
+
                         <div class="menu_section">
                             <h3>Chapitre</h3>
                             <ul class="nav side-menu">
@@ -228,10 +228,10 @@
                                 </li>
                             </ul>
                         </div>
- 
+
                     </div>
                     <!-- /sidebar menu -->
- 
+
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small">
                         <a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -250,16 +250,16 @@
                     <!-- /menu footer buttons -->
                 </div>
             </div>
- 
+
             <!-- top navigation -->
             <div class="top_nav">
- 
+
                 <div class="nav_menu">
                     <nav class="" role="navigation">
                         <div class="nav toggle">
                             <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                         </div>
- 
+
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -282,7 +282,7 @@
                                     </li>
                                 </ul>
                             </li>
- 
+
                             <li role="presentation" class="dropdown">
                                 <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-envelope-o"></i>
@@ -299,7 +299,7 @@
                                             <span class="time">3 mins ago</span>
                                             </span>
                                             <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                        Film festivals used to be do-or-die moments for movie makers. They were where... 
                                     </span>
                                         </a>
                                     </li>
@@ -313,7 +313,7 @@
                                             <span class="time">3 mins ago</span>
                                             </span>
                                             <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                        Film festivals used to be do-or-die moments for movie makers. They were where... 
                                     </span>
                                         </a>
                                     </li>
@@ -327,7 +327,7 @@
                                             <span class="time">3 mins ago</span>
                                             </span>
                                             <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                        Film festivals used to be do-or-die moments for movie makers. They were where... 
                                     </span>
                                         </a>
                                     </li>
@@ -341,7 +341,7 @@
                                             <span class="time">3 mins ago</span>
                                             </span>
                                             <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                                        Film festivals used to be do-or-die moments for movie makers. They were where... 
                                     </span>
                                         </a>
                                     </li>
@@ -355,18 +355,18 @@
                                     </li>
                                 </ul>
                             </li>
- 
+
                         </ul>
                     </nav>
                 </div>
- 
+
             </div>
             <!-- /top navigation -->
- 
- 
+
+
             <!-- page content -->
             <div class="right_col" role="main">
- 
+
                 <!-- top tiles -->
                 <!--<div class="row tile_count">
                     <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
@@ -417,14 +417,14 @@
                             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
                         </div>
                     </div>
- 
+
                 </div>
                 <!-- /top tiles -->
- 
+
                 <div class="row">
                    <!-- <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="dashboard_graph">
- 
+
                             <div class="row x_title">
                                 <div class="col-md-6">
                                     <h3>Network Activities <small>Graph title sub-title</small></h3>
@@ -436,7 +436,7 @@
                                     </div>
                                 </div>
                             </div>
- 
+
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <div id="placeholder33" style="height: 260px; display: none" class="demo-placeholder"></div>
                                 <div style="width: 100%;">
@@ -448,7 +448,7 @@
                                     <h2>Top Campaign Performance</h2>
                                     <div class="clearfix"></div>
                                 </div>
- 
+
                                 <div class="col-md-12 col-sm-12 col-xs-6">
                                     <div>
                                         <p>Facebook Campaign</p>
@@ -485,75 +485,74 @@
                                         </div>
                                     </div>
                                 </div>
- 
+
                             </div>
- 
+
                             <div class="clearfix"></div>
                         </div>
                     </div>-->
- 
+
                 </div>
                 <br />
- 
+
                 <div class="row">
-               
-               
-            <?php
-           
-            $valid = 1;
-             if (isset($_POST['id'])) {
-                $idMooc = $_POST['id'];                            
-                //echo $idMooc;
-            }else{
-                $valid = 0;
-                echo'erreur';
-            }
-           
-            $selectChap = $bdd->prepare("SELECT * FROM chapitre WHERE id_mooc = $idMooc");
+				
+				
+			<?php
+			
+			$valid = 1;
+			 if (isset($_POST['id'])) {
+				$idMooc = $_POST['id'];								
+				//echo $idMooc;
+			}else{
+				$valid = 0;
+				echo'erreur';
+			}
+			
+			$selectChap = $bdd->prepare("SELECT * FROM chapitre WHERE id_mooc = $idMooc");
             $selectChap->execute();
- 
+
             $lignesChap = $selectChap->fetchAll();
-           
-            if(sizeof($lignesChap) == 0){
+			
+			if(sizeof($lignesChap) == 0){
                 echo 'Aucun chapitre présent';
             }
-            else
-            {
-                    echo 'Chapitre Ok';
-                for($i = 0; $i<sizeof($lignesChap); $i++)
-                {
-                     
-                      echo'<div class="content">
-                                <div class="main">
-                                    <h3 class="name"> '.$lignesChap[$i]["nom"].' </h3>
-                                </div>
-                            </div>';
-                            $idChap = $lignesChap[$i]["id_chapitre"];
-                            $selectExo = $bdd->prepare("SELECT * FROM exercice WHERE id_chapitre = $idChap");
-                            $selectExo->execute();
- 
-                            $lignesExo = $selectExo->fetchAll();
-                            if(sizeof($lignesExo) == 0)
-                            {
-                                    echo 'Aucun exercice présent';
-                            }
-                            else
-                            {      
-                                    for($j = 0; $j<sizeof($lignesExo); $j++)
-                                    {
-                                        var_dump($j);
-                                        var_dump("size of =".sizeof($lignesExo));
-                                        echo'<div>
-                                                <h3 class="name"> Exercice n°'.$lignesExo[$j]["numero"].' </h3>
-                                            </div>';
-                                        $idExo = $lignesExo[$j]["id_exercice"];
-                                        var_dump("boucle i =".$j);
-                                        var_dump(" id_exercice =".$idExo);
-                                        $idQcmOk = $lignesExo[$j]["id_qcm"];
-                                        $idDragOk = $lignesExo[$j]["id_drag"];
+			else
+			{
+					echo 'Chapitre Ok';
+				for($i = 0; $i<sizeof($lignesChap); $i++)
+				{
+					 
+					  echo'<div class="content">
+								<div class="main">
+									<h3 class="name"> '.$lignesChap[$i]["nom"].' </h3>
+								</div>
+							</div>';
+							$idChap = $lignesChap[$i]["id_chapitre"];
+							$selectExo = $bdd->prepare("SELECT * FROM exercice WHERE id_chapitre = $idChap");
+							$selectExo->execute();
+
+							$lignesExo = $selectExo->fetchAll();
+							if(sizeof($lignesExo) == 0)
+							{
+									echo 'Aucun exercice présent';
+							}
+							else
+							{		
+									for($j = 0; $j<sizeof($lignesExo); $j++)
+									{
+										var_dump($j);
+										var_dump("size of =".sizeof($lignesExo));
+										echo'<div>
+												<h3 class="name"> Exercice n°'.$lignesExo[$j]["numero"].' </h3>
+											</div>';
+										$idExo = $lignesExo[$j]["id_exercice"];
+										var_dump("boucle i =".$j);
+										var_dump(" id_exercice =".$idExo);
+										$idQcmOk = $lignesExo[$j]["id_qcm"];
+										$idDragOk = $lignesExo[$j]["id_drag"];
                                         var_dump("id_qcm  =".$idQcmOk);
                                         var_dump("id_drag  =".$idDragOk);
-
 										if($idQcmOk != NULL && $idDragOk == NULL)
 										{
 											$iQcm = 0;
@@ -588,58 +587,20 @@
 											</div>';
 									
 										}else{
-                                            var_dump("N'est passé dans aucun if"); // c'est un commentaire
-											
-                                        if($idQcmOk != NULL && $idDragOk == NULL)
-                                        {
-                                            $iQcm = 0;
-                                            $selectqcm = $bdd->prepare("SELECT * FROM qcm WHERE id_exercice = $idExo");
-                                            $selectqcm->execute();
- 
-                                            $lignesQcm = $selectqcm->fetchAll();
-                                            var_dump($lignesExo);
-                                             echo'<div class="content">
-                                                    <div class="main">
-                                                        <h3 class="name"> '.$lignesQcm[$iQcm]["question"].' </h3>
-                                                       
-                                                    </div>
-                                                </div>';
-                                           
-                                        }
-                                        else if($idQcmOk == NULL && $idDragOk != NULL)
-                                        {
-                                            $iDrag = 0;
-                                            $selectDrag = $bdd->prepare("SELECT * FROM drag WHERE id_exercice = $idExo");
-                                            $selectDrag->execute();
- 
-                                            $lignesDrag = $selectDrag->fetchAll();
-                                            var_dump($lignesExo);
-                                            echo'<div class="content">
-                                                <div class="main">
-                                                    <h3 class="name"> '.$lignesDrag[$iDrag]["reponse"].' </h3>
-                                                    <h3 class="name"> '.$lignesDrag[$iDrag]["texte"].' </h3>
-                                                    <h3 class="name"> '.$lignesDrag[$iDrag]["indice"].' </h3>
-                                                   
-                                                </div>
-                                            </div>';
-                                   
-                                        }else{
                                             var_dump("N'est passé dans aucun if");
-
                                         }
-                                    }
-                            }
-                           
-                           
-                     
-                }
-            }
-		}
-           
-           
-           
-             ?>
- 
+									}
+							}
+							
+						   
+					  
+				}
+			}
+			
+			
+			
+			 ?>
+
 <!--
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel tile fixed_height_320">
@@ -680,7 +641,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
- 
+
                                 <div class="widget_summary">
                                     <div class="w_left w_25">
                                         <span>0.1.5.3</span>
@@ -745,11 +706,11 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
- 
+
                             </div>
                         </div>
                     </div>-->
- 
+
                     <!--<div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel tile fixed_height_320 overflow_hidden">
                             <div class="x_title">
@@ -772,7 +733,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
- 
+
                                 <table class="" style="width:100%">
                                     <tr>
                                         <th style="width:37%;">
@@ -869,7 +830,7 @@
                                         <li><i class="fa fa-area-chart"></i><a href="#">Logout</a>
                                         </li>
                                     </ul>
- 
+
                                     <div class="sidebar-widget">
                                         <h4>Profile Completion</h4>
                                         <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
@@ -883,10 +844,10 @@
                             </div>
                         </div>
                     </div>-->
- 
+
                 </div>
- 
- 
+
+
                 <div class="row">
                    <!-- <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
@@ -911,7 +872,7 @@
                             </div>
                             <div class="x_content">
                                 <div class="dashboard-widget-content">
- 
+
                                     <ul class="list-unstyled timeline widget">
                                         <li>
                                             <div class="block">
@@ -974,13 +935,13 @@
                             </div>
                         </div>
                     </div>-->
- 
- 
- 
+
+
+
                 </div>
- 
+
                 <!-- footer content -->
- 
+
                 <footer>
                     <div class="">
                         <p class="pull-right">MOOCs <a>Isen</a>. |
@@ -993,18 +954,18 @@
             </div>
             <!-- /page content -->
         </div>
- 
+
     </div>
- 
+
     <div id="custom_notifications" class="custom-notifications dsp_none">
         <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
         </ul>
         <div class="clearfix"></div>
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
- 
+
     <script src="js/bootstrap.min.js"></script>
- 
+
     <!-- gauge js -->
     <script type="text/javascript" src="js/gauge/gauge.min.js"></script>
     <script type="text/javascript" src="js/gauge/gauge_demo.js"></script>
@@ -1018,9 +979,9 @@
     <!-- daterangepicker -->
     <script type="text/javascript" src="js/moment.min.js"></script>
     <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
- 
+
     <script src="js/custom.js"></script>
- 
+
     <!-- flot js -->
     <!--[if lte IE 8]><script type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
     <script type="text/javascript" src="js/flot/jquery.flot.js"></script>
@@ -1037,7 +998,7 @@
             // [17, 74, 6, 39, 20, 85, 7]
             //[82, 23, 66, 9, 99, 6, 2]
             var data1 = [[gd(2012, 1, 1), 17], [gd(2012, 1, 2), 74], [gd(2012, 1, 3), 6], [gd(2012, 1, 4), 39], [gd(2012, 1, 5), 20], [gd(2012, 1, 6), 85], [gd(2012, 1, 7), 7]];
- 
+
             var data2 = [[gd(2012, 1, 1), 82], [gd(2012, 1, 2), 23], [gd(2012, 1, 3), 66], [gd(2012, 1, 4), 9], [gd(2012, 1, 5), 119], [gd(2012, 1, 6), 6], [gd(2012, 1, 7), 9]];
             $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
                 data1, data2
@@ -1086,13 +1047,13 @@
                 },
                 tooltip: false
             });
- 
+
             function gd(year, month, day) {
                 return new Date(year, month - 1, day).getTime();
             }
         });
     </script>
- 
+
     <!-- worldmap -->
     <script type="text/javascript" src="js/maps/jquery-jvectormap-2.0.1.min.js"></script>
     <script type="text/javascript" src="js/maps/gdp-data.js"></script>
@@ -1129,13 +1090,13 @@
                 "fog"
             ],
             i;
- 
+
         for (i = list.length; i--;)
             icons.set(list[i], list[i]);
- 
+
         icons.play();
     </script>
- 
+
     <!-- dashbord linegraph -->
     <script>
         var doughnutData = [
@@ -1166,13 +1127,13 @@
     <!-- datepicker -->
     <script type="text/javascript">
         $(document).ready(function () {
- 
+
             var cb = function (start, end, label) {
                 console.log(start.toISOString(), end.toISOString(), label);
                 $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
                 //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
             }
- 
+
             var optionSet1 = {
                 startDate: moment().subtract(29, 'days'),
                 endDate: moment(),
@@ -1242,5 +1203,5 @@
     <!-- /datepicker -->
     <!-- /footer content -->
 </body>
- 
+
 </html>
