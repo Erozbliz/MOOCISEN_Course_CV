@@ -2,7 +2,7 @@
 <?php
     include '_include/connect.inc.php';
 
-    $select3 = $bdd->prepare("SELECT nom,prenom,email FROM user WHERE id_user ='17'");
+    $select3 = $bdd->prepare("SELECT nom,prenom,email FROM user WHERE id_user ='18'");
     $select3->execute();
 
     $lignes3 = $select3->fetchAll();
@@ -311,14 +311,14 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Modifier mes informations <small>sub title</small></h2>
+                                    <h2>Modifier mon profil <small>sub title</small></h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
 
                                     <form class="form-horizontal form-label-left" novalidate>
 
-                                        <span class="section">Informations personnelles</span>
+                                        <!--<span class="section">Informations personnelles</span> -->
 
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nom <span class="required">*</span>
@@ -339,18 +339,6 @@
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <input type="email" id="email" name="email" placeholder=<?php echo $email ?> required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label for="password" class="control-label col-md-3">Mot de passe</label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label for="password" class="control-label col-md-3">Confirmation mot de passe</label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
                                             </div>
                                         </div>
                                         <div class="item form-group">
@@ -377,6 +365,46 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Modifier mot de passe <small>sub title</small></h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <form class="form-horizontal form-label-left" novalidate>
+
+                                        <!-- <span class="section">Informations personnelles</span> -->
+
+                                        <div class="item form-group">
+                                            <label for="password" class="control-label col-md-3">Nouveau mot de passe</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label for="password" class="control-label col-md-3">Confirmation mot de passe</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-md-offset-3">
+                                                <button type="submit" class="btn btn-primary">Annuler</button>
+                                                <button id="send" type="submit" class="btn btn-success">Confirmer</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             <!-- /page content -->
         </div>

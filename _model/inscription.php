@@ -1,7 +1,9 @@
 <?php
 include "../_include/connect.inc.php";  /// Connection bdd
 
-echo "incription.php";
+//echo "inscription.php";
+
+header("Location: ../index.php");
 
 //ok=1   ko=0
 function formValid(){
