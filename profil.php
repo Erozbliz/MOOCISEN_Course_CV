@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <?php
+    session_start();
     include '_include/connect.inc.php';
 
-    $select3 = $bdd->prepare("SELECT nom,prenom,email FROM user WHERE id_user ='18'");
+
+
+    $select3 = $bdd->prepare("SELECT nom,prenom,email FROM user WHERE id_user = ".$_SESSION["id_user"]."");
     $select3->execute();
 
     $lignes3 = $select3->fetchAll();

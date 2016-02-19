@@ -3,7 +3,7 @@ include "../_include/connect.inc.php";  /// Connection bdd
 
 //echo "inscription.php";
 
-header("Location: ../index.php");
+
 
 //ok=1   ko=0
 function formValid(){
@@ -82,11 +82,33 @@ function insertUsertoBDD(){
 		$requete_prepare= $bdd->prepare("INSERT INTO user(nom,prenom,pseudo,email,password,pays,grade) VALUES('$valSurname', '$valName', '$valPseudo', '$valEmail', '$valPassword', '$valPays', 1)"); // on prépare notre requête
 		$requete_prepare->execute();
 		echo "->OK";
+
 	} catch (Exception $e) { 
   		echo $e->errorMessage();
   		echo "->erreur";
 	}
  }
+
+function startSession(){
+ include "../_include/connect.inc.php";
+ $email = $_POST['email'];
+ try { 
+	$requete_prepare = $bdd->prepare("SELECT * FROM user WHERE email='$email'"); // on prépare notre req
+	$requete_prepare->execute();
+	$result = $requete_prepare->fetchAll( PDO::FETCH_ASSOC );
+	session_start();
+        $_SESSION['login'] = $result[0]['email'];
+        $_SESSION['pseudo'] = $result[0]['pseudo'];
+        $_SESSION['id_user'] = $result[0]['id_user'];
+	} catch (Exception $e) { 
+		echo $e->errorMessage();
+  		echo "->erreur";
+	}
+
+
+}
+
+
 
 $verifMail = emailExist();
 $verif = formValid();
@@ -94,6 +116,9 @@ if($verifMail==1){
 	echo '<br>Mail déjà present';
 }else if($verif==1){
 	insertUsertoBDD();
+	//Mettre startSession();
+	startSession();
+	header("Location: ../index.php");
 }
 else{
 	echo '<br>wrong form';

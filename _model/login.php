@@ -50,6 +50,8 @@ function formValid(){
 		session_start();
         $_SESSION['login'] = $result[0]['email'];
         $_SESSION['pseudo'] = $result[0]['pseudo'];
+        $_SESSION['id_user'] = $result[0]['id_user'];
+
       	header('Location: ../index');
 	}else if($result[0]['email']==$email && $result[0]['password']!=$valPassword){
 		header ("location: ../inscription1?erreur=Mot de passe faux");
