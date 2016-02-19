@@ -25,6 +25,9 @@
                         <li>
                             <a href="inscription1.php"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Connexion</a>
                         </li>
+                        <li>
+                            <a href="profil.php"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon Profil</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
