@@ -77,7 +77,7 @@ function insertUsertoBDD(){
 	$valPays = $_POST['selectPays'];
 	$valJob = $_POST['selectJob'];
 	try { 
-		$requete_prepare= $bdd->prepare("INSERT INTO user(nom,prenom,pseudo,email,password,ville,grade) VALUES('$valSurname', '$valName', '$valPseudo', '$valEmail', '$valPassword', '$valPays', 1)"); // on prépare notre requête
+		$requete_prepare= $bdd->prepare("INSERT INTO user(nom,prenom,pseudo,email,password,pays,grade) VALUES('$valSurname', '$valName', '$valPseudo', '$valEmail', '$valPassword', '$valPays', 1)"); // on prépare notre requête
 		$requete_prepare->execute();
 		echo "->OK";
 	} catch (Exception $e) { 
