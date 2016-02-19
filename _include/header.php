@@ -19,12 +19,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="index.php" > Liste des MOOCs</a>
-                        </li>
-
-
-                      
-
-                        
+                        </li>                
                                 <?php  
                                if ((isset($_SESSION['login'])) && (!empty($_SESSION['login'])))
                                 {
@@ -50,7 +45,7 @@
                                 }
                                    
                                 ?>
-                                <li>
+                        <li>
                             <a href="index.php">A Propos</a>
                         </li>
                             
