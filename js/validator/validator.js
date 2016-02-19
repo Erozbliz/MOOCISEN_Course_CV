@@ -15,20 +15,20 @@ var validator = (function($){
 	/* general text messages
 	*/
 	message = {
-		invalid			: 'invalid input',
-		empty			: 'please put something here',
-		min				: 'input is too short',
-		max				: 'input is too long',
-		number_min		: 'too low',
-		number_max		: 'too high',
-		url				: 'invalid URL',
-		number			: 'not a number',
-		email			: 'email address is invalid',
-		email_repeat	: 'emails do not match',
-		password_repeat	: 'passwords do not match',
-		repeat			: 'no match',
-		complete		: 'input is not complete',
-		select			: 'Please select an option'
+		invalid			: 'Invalide',
+		empty			: 'Vide',
+		min				: 'Trop court',
+		max				: 'Trop long',
+		number_min		: 'Trop court',
+		number_max		: 'Trop long',
+		url				: 'URL invalide',
+		number			: 'Mettre un chiffre',
+		email			: 'Email addresse invalide',
+		email_repeat	: 'Email addresse différence',
+		password_repeat	: 'Mot de passe faux',
+		repeat			: 'Invalide',
+		complete		: 'Incomplet',
+		select			: 'Selectioner une case'
 	};
 	
 	if(!window.console){

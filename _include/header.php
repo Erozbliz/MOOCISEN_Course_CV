@@ -1,3 +1,4 @@
+<?php     session_start();?>
 <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top animated slideInDown" role="navigation">
             <div class="container ">
@@ -19,15 +20,40 @@
                         <li>
                             <a href="index.php" > Liste des MOOCs</a>
                         </li>
-                        <li>
+
+
+                      
+
+                        
+                                <?php  
+                               if ((isset($_SESSION['login'])) && (!empty($_SESSION['login'])))
+                                {
+                                    //echo "lololol";
+                                    echo 
+                                    ("
+                                    <li>
+                                        <a href='profil'> <span class='glyphicon glyphicon-user' aria-hidden='true'></span> ".$_SESSION['pseudo']."</a>
+                                    </li>
+                                    <li>
+                                        <a href='_model/logout'> <span class='glyphicon glyphicon-off' aria-hidden='true'></span> Déconnexion </a> 
+                                    </li>
+                                    ");
+                                }
+                                else
+                                {
+                                    echo 
+                                    ("
+                                    <li>
+                                        <a href='inscription1.php'> <span class='glyphicon glyphicon-log-in' aria-hidden='true'></span> Connexion</a>
+                                    </li>
+                                    ");
+                                }
+                                   
+                                ?>
+                                <li>
                             <a href="index.php">A Propos</a>
                         </li>
-                        <li>
-                            <a href="inscription1.php"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Connexion</a>
-                        </li>
-                        <li>
-                            <a href="profil.php"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon Profil</a>
-                        </li>
+                            
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

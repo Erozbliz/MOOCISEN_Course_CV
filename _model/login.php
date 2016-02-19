@@ -48,7 +48,8 @@ function formValid(){
   		header ("location: ../inscription1?erreur=Aucun compte");
 	}else if($result[0]['email']==$email && $result[0]['password']==$valPassword){
 		session_start();
-        $_SESSION['login'] = $_POST['email'];
+        $_SESSION['login'] = $result[0]['email'];
+        $_SESSION['pseudo'] = $result[0]['pseudo'];
       	header('Location: ../index');
 	}else if($result[0]['email']==$email && $result[0]['password']!=$valPassword){
 		header ("location: ../inscription1?erreur=Mot de passe faux");
