@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../_include/connect.inc.php";  /// Connection bdd
 
 /*
@@ -78,7 +79,7 @@ function updateIdResetPwd(){
  	include "../_include/connect.inc.php";
  	$valPwd = $_POST['newPassword'];
  	$valPwd = md5($valPwd);
- 	$id = $_POST['idUser'];
+ 	$id = $_SESSION['id_user'];
 	try { 
 		$requete_prepare= $bdd->prepare("UPDATE user SET password='$valPwd' WHERE id_user='$id'"); // on prépare notre requête
 		$requete_prepare->execute();
@@ -95,15 +96,18 @@ function updateIdResetPwd(){
 $verif = formValid();
 $verifSession = sessionValid();
 
-if($verif==1){
+if($verifSession==1){
 	if($verif==1){
 		$verifId = verifId();
 		if($verifId==0){
 			echo "->id n'existe pas";
+			header ("location: ../profil?erreur=Erreur mdp");
 		}else if($verifId==1){
 			echo "->mdp ne corresponde pas";
+			header ("location: ../profil?erreur=mdp non identique");
 		}else if($verif==1){
 			updateIdResetPwd();
+			header ("location: ../profil?ok=success");
 		}
 	}
 	else{

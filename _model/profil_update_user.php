@@ -90,7 +90,7 @@ $verifSession = sessionValid();
 if($verifSession ==1){
 	if($verif==1){
 		updateUser();
-		header ("location: ../profil?ok=succes");
+		header ("location: ../profil?ok=success");
 	}
 	else{
 		echo '<br>wrong form';
