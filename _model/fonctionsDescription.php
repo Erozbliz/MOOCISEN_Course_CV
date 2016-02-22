@@ -29,7 +29,7 @@ function getInfos()
 			
 				<div class="col-sm-4 col-sm-offset-4 animated zoomIn">
 					<div class="card-container manual-flip">
-						<form action="moocTest.php" method="post">
+						<form action="mooc/chapitres/chapitre1.php" method="post">
 							<button name="id" value='.$idMooc.'  class="btn btn-block btn-md btn-info">Accéder au cours</button>
 						</form>
 					</div>

@@ -1,4 +1,4 @@
-﻿<?php 
+﻿	<?php 
     $connect_str= "mysql:host=localhost;dbname=mooc";
     $connect_user= 'root';
     $connect_pass= '';
