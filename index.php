@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Présentation</h1>
-                    <p>Voici des MOOCs destinés aux étudiants </p>
+                    <p>Voici une vidéo de présentation de ce notre site</p>
                     <!-- iframe-responsive.css full css -->
                     <div class="videocontainer"> 
                      <iframe src="https://www.youtube.com/embed/lX7kYDRIZO4" frameborder="0" allowfullscreen></iframe>
@@ -68,7 +68,7 @@
         <!-- /.container -->
         <div class="container">
             <div>
-                <input class="search" type="search" placeholder=" Rechercher un cours" onkeyup="filter()" />
+                <input class="search form-control" type="search" placeholder=" Rechercher un cours" onkeyup="filter()" />
                 <label>
                     <input type="radio" class="flat" checked  id="nom" onclick="Chkbox(this.id);filter();"> Nom
                 </label>
@@ -76,6 +76,8 @@
                     <input type="radio" class="flat"  id="matiere" onclick="Chkbox(this.id);filter();"> Matière
                 </label>
             </div>
+
+            
 
         <div class="col-md-12 ">
 
