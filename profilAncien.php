@@ -619,6 +619,14 @@
                                               </select>
                                             </div>
                                         </div>
+                                            <?php  
+                                            if ((isset($_SESSION['id_user'])) && (!empty($_SESSION['id_user'])))
+                                            {
+                                                echo ("<input id='idUser' type='hidden' name='idUser' value='".$_SESSION['id_user']."'");
+                                            }else{
+                                                echo "erreur de session";
+                                            }
+                                            ?>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-md-offset-3">
@@ -659,6 +667,15 @@
                                             </div>
                                         </div>
 
+
+                                        <?php  
+                                        if ((isset($_SESSION['id_user'])) && (!empty($_SESSION['id_user'])))
+                                        {
+                                            echo ("<input id='idUser' type='hidden' name='idUser' value='".$_SESSION['id_user']."'");
+                                        }else{
+                                            echo "erreur de session";
+                                        }
+                                        ?>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-md-offset-3">
@@ -671,47 +688,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /fin row -->
-
-
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Modifier mot de passe <small>sub title</small></h2>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-
-                                    <form class="form-horizontal form-label-left" action="_model/profil_update_password" method="post" id="myform2" novalidate>
-
-                                        <!-- <span class="section">Informations personnelles</span> -->
-                    
-                                        <div class="item form-group">
-                                            <label for="password" class="control-label col-md-3">Ancien mot de passe</label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="oldPassword" type="password" name="oldPassword" data-validate-length-range="4" class="form-control col-md-7 col-xs-12" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label for="password" class="control-label col-md-3">Nouveau mot de passe</label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="newPassword" type="password" name="newPassword" data-validate-length-range="4" class="form-control col-md-7 col-xs-12" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="ln_solid"></div>
-                                        <div class="form-group">
-                                            <div class="col-md-6 col-md-offset-3">
-                                                <button id="send" type="submit" class="btn btn-success">Confirmer</button>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /fin row -->
 
                 </div>
             <!-- /page content -->

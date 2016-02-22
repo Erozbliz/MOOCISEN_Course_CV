@@ -1,9 +1,25 @@
 <?php
+session_start();
 include "../_include/connect.inc.php";  /// Connection bdd
 
 /*
 	Modification du mot de passe depuis la page profif.php 
 */
+
+
+//ok=1   ko=0
+function sessionValid(){
+	$verif = 1;
+	if ((isset($_SESSION['id_user'])) && (!empty($_SESSION['id_user'])))
+    {
+    	//session ok
+    }
+    else
+    {
+    	$verif = 0;
+    }
+    return $verif;
+}
 
 //ok=1   ko=0
 function formValid(){
@@ -15,11 +31,6 @@ function formValid(){
 	 }
 	 if (isset($_POST['newPassword'])) {
  		echo '<br>'.$_POST['newPassword'];
-	 }else{
-	 	$verif=0;
-	 }
-	 if (isset($_POST['idUser'])) {
- 		echo '<br>'.$_POST['idUser'];
 	 }else{
 	 	$verif=0;
 	 }
@@ -36,7 +47,7 @@ function formValid(){
 function verifId(){
 	include "../_include/connect.inc.php";
 	$verif = 1;
-	$id = $_POST['idUser'];
+	$id = $_SESSION['id_user'];
 	$oldPassword = $_POST['oldPassword'];
 	try { 
 	$requete_prepare = $bdd->prepare("SELECT * FROM user WHERE id_user='$id'"); // on prépare notre req
@@ -58,8 +69,6 @@ function verifId(){
 	if($oldPasswordInBdd===$oldPassword){
 		$verif = 2;
 	}
-
-
 	return $verif;
 }
 
@@ -70,7 +79,7 @@ function updateIdResetPwd(){
  	include "../_include/connect.inc.php";
  	$valPwd = $_POST['newPassword'];
  	$valPwd = md5($valPwd);
- 	$id = $_POST['idUser'];
+ 	$id = $_SESSION['id_user'];
 	try { 
 		$requete_prepare= $bdd->prepare("UPDATE user SET password='$valPwd' WHERE id_user='$id'"); // on prépare notre requête
 		$requete_prepare->execute();
@@ -85,19 +94,29 @@ function updateIdResetPwd(){
 
 //Valide que le formulaire
 $verif = formValid();
+$verifSession = sessionValid();
 
-if($verif==1){
-	$verifId = verifId();
-	if($verifId==0){
-		echo "->id n'existe pas";
-	}else if($verifId==1){
-		echo "->mdp ne corresponde pas";
-	}else if($verif==1){
-		updateIdResetPwd();
+if($verifSession==1){
+	if($verif==1){
+		$verifId = verifId();
+		if($verifId==0){
+			echo "->id n'existe pas";
+			header ("location: ../profil?erreur=Erreur mdp");
+		}else if($verifId==1){
+			echo "->mdp ne corresponde pas";
+			header ("location: ../profil?erreur=mdp non identique");
+		}else if($verif==1){
+			updateIdResetPwd();
+			header ("location: ../profil?ok=success");
+		}
 	}
-}
-else{
-	echo '<br>wrong form';
+	else{
+		echo '<br>wrong form';
+		header ("location: ../profil?erreur=Erreur formulaire");
+	}
+}else{
+	echo '<br>aucune session';
+	header ("location: ../?erreur=Erreur session");
 }
 
 

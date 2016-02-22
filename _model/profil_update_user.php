@@ -1,9 +1,24 @@
 <?php
+session_start();
 include "../_include/connect.inc.php";  /// Connection bdd
 
 /*
 	Modification du mot de passe depuis la page profif.php 
 */
+
+//ok=1   ko=0
+function sessionValid(){
+	$verif = 1;
+	if ((isset($_SESSION['id_user'])) && (!empty($_SESSION['id_user'])))
+    {
+    	//session ok
+    }
+    else
+    {
+    	$verif = 0;
+    }
+    return $verif;
+}
 
 //ok=1   ko=0
 function formValid(){
@@ -33,11 +48,6 @@ function formValid(){
 	 }else{
 	 	$verif=0;
 	 }
-	 if (isset($_POST['idUser'])) {
-	 	echo $_POST['idUser'];
-	 }else{
-	 	$verif=0;
-	 }
 	 if (isset($_POST['selectJob'])) {
 	 	echo $_POST['selectJob'];
 	 }else{
@@ -55,7 +65,7 @@ function formValid(){
 //Met a jour l id pour le reset du mdp
 function updateUser(){
  	include "../_include/connect.inc.php";
- 	$id = $_POST['idUser'];
+ 	$id = $_SESSION['id_user'];
  	$name = $_POST['name'];
  	$surname = $_POST['surname'];
  	$pseudo = $_POST['pseudo'];
@@ -76,12 +86,19 @@ function updateUser(){
 
 //Valide que le formulaire
 $verif = formValid();
-
-if($verif==1){
-	updateUser();
-}
-else{
-	echo '<br>wrong form';
+$verifSession = sessionValid();
+if($verifSession ==1){
+	if($verif==1){
+		updateUser();
+		header ("location: ../profil?ok=success");
+	}
+	else{
+		echo '<br>wrong form';
+		header ("location: ../profil?erreur=Erreur formulaire");
+	}
+}else{
+	echo '<br>aucune session';
+	header ("location: ../?erreur=Erreur session");
 }
 
 
