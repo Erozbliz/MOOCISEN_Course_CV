@@ -354,9 +354,9 @@
                            <fieldset class="form-group">
                               <label for="exampleSelect1">Occupation</label>
                               <select class="form-control" id="exampleSelect2" name="selectJob">
-                                 <option value="1">Etudiant</option>
-                                 <option value="2">En recherche d'emploi</option>
-                                 <option value="3">Actif</option>
+                                 <option value="Etudiant">Etudiant</option>
+                                 <option value="En recherche d'emploi">En recherche d'emploi</option>
+                                 <option value="Actif">Actif</option>
                               </select>
                            </fieldset>
                            <button type="submit" class="btn btn-primary">Créer compte</button>

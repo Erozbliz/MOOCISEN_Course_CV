@@ -3,6 +3,13 @@ include "../_include/connect.inc.php";  /// Connection bdd
 
 echo "login.php";
 
+/*
+	Page Login lance la session 
+	$_SESSION['login'] = $result[0]['email'];
+    $_SESSION['pseudo'] = $result[0]['pseudo'];
+    $_SESSION['id_user'] = $result[0]['id_user'];
+*/
+
 //ok=1   ko=0
 function formValid(){
 	$verif = 1;
@@ -48,9 +55,14 @@ function formValid(){
   		header ("location: ../inscription1?erreur=Aucun compte");
 	}else if($result[0]['email']==$email && $result[0]['password']==$valPassword){
 		session_start();
-        $_SESSION['login'] = $result[0]['email'];
-        $_SESSION['pseudo'] = $result[0]['pseudo'];
-        $_SESSION['id_user'] = $result[0]['id_user'];
+        $_SESSION['login'] 		= $result[0]['email'];
+        $_SESSION['pseudo'] 	= $result[0]['pseudo'];
+        $_SESSION['id_user'] 	= $result[0]['id_user'];
+        $_SESSION['email'] 		= $result[0]['email'];
+        $_SESSION['pays'] 		= $result[0]['pays'];
+        $_SESSION['grade'] 		= $result[0]['grade'];
+        $_SESSION['nom'] 		= $result[0]['nom'];
+        $_SESSION['prenom'] 	= $result[0]['prenom'];
 
       	header('Location: ../index');
 	}else if($result[0]['email']==$email && $result[0]['password']!=$valPassword){
