@@ -40,6 +40,8 @@
     <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.1.css" />
     <link href="css/icheck/flat/green.css" rel="stylesheet" />
     <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/progressbar/bootstrap-progressbar-3.3.0.css">
 
     <script src="js/jquery.min.js"></script>
     <script src="js/nprogress.js"></script>
@@ -673,39 +675,107 @@
                     </div>
                     <!-- /fin row -->
 
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Mes trophées <small>sub title</small></h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <?php 
+
+                                        $trophy = $bdd->prepare('SELECT debloquer.date_obtention ,succes.nom, succes.description FROM succes INNER JOIN debloquer ON succes.id_succes = debloquer.id_succes INNER JOIN user ON user.id_user = debloquer.id_user WHERE debloquer.id_user = "'.$_SESSION['id_user'].'"');
+                                        $trophy->execute();
+                                        $resuTrophy = $trophy->fetchAll();
+
+                                        $trophy1 = $bdd->prepare('SELECT DISTINCT succes.nom, succes.description FROM succes WHERE NOT EXISTS (SELECT * FROM debloquer WHERE succes.id_succes = debloquer.id_succes');
+                                        $trophy1->execute();
+                                        $resuTrophy1 = $trophy1->fetchAll();
+
+                                        //var_dump($resuTrophy1);
+                                        
+                                         for($i = 0; $i<sizeof($resuTrophy); $i++){
+
+                                            echo'<div class="col-md-3">
+                                                    <img src="images/trophy1.png" width="128" height="109" class="trophyUnlock" style="margin:auto;display:block">
+                                                    <p class="text-center"><b>'.$resuTrophy[$i]["nom"].'</b></p>
+                                                    <p class="text-center">'.$resuTrophy[$i]["description"].'</p>';
+                                                     $date = date_create($resuTrophy[$i]["date_obtention"]);
+                                                    echo'<p class="text-center">Débloqué le : '.date_format($date, 'd F Y').'</p>
+                                                </div>';
+                                        }
+
+                                       
+                                        
+                                    ?> 
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /fin row -->
 
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Modifier mot de passe <small>sub title</small></h2>
+                                    <h2>Trophées restants <small>sub title</small></h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
 
-                                    <form class="form-horizontal form-label-left" action="_model/profil_update_password" method="post" id="myform2" novalidate>
+                                    <?php 
 
-                                        <!-- <span class="section">Informations personnelles</span> -->
-                    
-                                        <div class="item form-group">
-                                            <label for="password" class="control-label col-md-3">Ancien mot de passe</label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="oldPassword" type="password" name="oldPassword" data-validate-length-range="4" class="form-control col-md-7 col-xs-12" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label for="password" class="control-label col-md-3">Nouveau mot de passe</label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="newPassword" type="password" name="newPassword" data-validate-length-range="4" class="form-control col-md-7 col-xs-12" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="ln_solid"></div>
-                                        <div class="form-group">
-                                            <div class="col-md-6 col-md-offset-3">
-                                                <button id="send" type="submit" class="btn btn-success">Confirmer</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        $trophy1 = $bdd->prepare('SELECT DISTINCT succes.nom, succes.description FROM succes WHERE NOT EXISTS (SELECT * FROM debloquer WHERE succes.id_succes = debloquer.id_succes)');
+                                        $trophy1->execute();
+                                        $resuTrophy1 = $trophy1->fetchAll();
+
+                                        //var_dump($resuTrophy1);
+                                        
+                                         for($i = 0; $i<sizeof($resuTrophy1); $i++){
+
+                                            echo'<div class="col-md-3">
+                                                    <img src="images/trophy1.png" width="128" height="109" class="trophyLock" style="margin:auto;display:block">
+                                                    <p class="text-center"><b>'.$resuTrophy1[$i]["nom"].'</b></p>
+                                                    <p class="text-center">'.$resuTrophy1[$i]["description"].'</p> 
+                                                </div>';
+                                        }
+
+                                    ?> 
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /fin row -->
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Mes cours <small>sub title</small></h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <?php 
+
+                                        $mooc = $bdd->prepare('SELECT mooc.nom FROM mooc INNER JOIN suivre ON mooc.id_mooc = suivre.id_mooc INNER JOIN user ON user.id_user = suivre.id_user WHERE user.id_user = "'.$_SESSION['id_user'].'"');
+                                        $mooc->execute();
+                                        $resuMooc = $mooc->fetchAll();
+
+                                        //var_dump($resuMooc);
+                                        
+                                         for($i = 0; $i<sizeof($resuMooc); $i++){
+
+                                           echo'<div>
+                                                    <h4>'.$resuMooc[$i]["nom"].'</h4>
+                                                </div>';
+                                        }
+
+                                    ?> 
 
                                 </div>
                             </div>

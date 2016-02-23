@@ -7,7 +7,7 @@
         $bdd= new PDO($connect_str, $connect_user, $connect_pass); 
         $utf8 = $bdd->prepare("SET NAMES UTF8");
         $utf8->execute();
-        
+    
 
     }
     catch(PDOException $e)
