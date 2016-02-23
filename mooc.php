@@ -102,34 +102,10 @@
 				<div class="menu_section">
 					<h3>Menu</h3>
 					<ul class="nav side-menu">
-						<li><a><i class="fa fa-question-circle"></i> Autre <span class="fa fa-chevron-down"></span></a>
-							<ul class="nav child_menu" style="display: none">
-							   <!-- <li><a href="e_commerce.html">E-commerce</a>
-								</li>
-								<li><a href="projects.html">Projects</a>
-								</li>
-								<li><a href="project_detail.html">Project Detail</a>
-								</li>
-								<li><a href="contacts.html">Contacts</a>
-								</li>
-								<li><a href="profile.html">Profile</a>
-								</li>
-							-->
-							</ul>
-						</li>
 						<li><a><i class="fa fa-wrench"></i> Paramètres <span class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu" style="display: none">
-							   <!-- <li><a href="page_404.html">404 Error</a>
-								</li>
-								<li><a href="page_500.html">500 Error</a>
-								</li>
-								<li><a href="plain_page.html">Plain Page</a>
-								</li>
-								<li><a href="login.html">Login Page</a>
-								</li>
-								<li><a href="pricing_tables.html">Pricing Tables</a>
-								</li>
-							-->
+    							<li><a href="profil"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Profil</a>
+    							</li>
 							</ul>
 						</li>
 						<li><a><i class="fa fa-envelope"></i> Tchat <span class="label label-success pull-right">Coming Soon</span></a>
@@ -142,16 +118,16 @@
 
 			<!-- /menu footer buttons -->
 			<div class="sidebar-footer hidden-small">
-				<a data-toggle="tooltip" data-placement="top" title="Settings">
+				<a href='profil' data-toggle="tooltip" data-placement="top" title="Paramètre">
 					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 				</a>
-				<a data-toggle="tooltip" data-placement="top" title="FullScreen">
-					<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+				<a href='profil' data-toggle="tooltip" data-placement="top" title="Contact">
+					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 				</a>
-				<a data-toggle="tooltip" data-placement="top" title="Lock">
-					<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+				<a href='profil' data-toggle="tooltip" data-placement="top" title="Information">
+					<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 				</a>
-				<a data-toggle="tooltip" data-placement="top" title="Logout">
+				<a href='_model/logout' data-toggle="tooltip" data-placement="top" title="Déconnexion">
 					<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 				</a>
 			</div>
