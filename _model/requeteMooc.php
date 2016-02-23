@@ -1,5 +1,5 @@
 <?php
-
+	
 	function chapitresplusSousPartie($idMooc,$bdd)
 	{
 		$selectChap = $bdd->prepare("SELECT * FROM chapitre WHERE id_mooc = $idMooc");
@@ -13,23 +13,23 @@
 		else
 		{
 			for($i = 0; $i<sizeof($lignesChap); $i++)
-		    {
-				echo '<li><a>'.$lignesChap[$i]["nom"].'<br></a>';
+			{
+				echo '<li><a><i class="fa fa-book"></i>'.$lignesChap[$i]["nom"].'<br><span class="fa fa-chevron-down"></span></a>';
 				$partie = $lignesChap[$i]["partie"];
 				$tabPartie = array();
 				$tabPartie = preg_split('[-]', $partie);
 					//var_dump($lignesExo);
-					 echo' <ul>';
+					 echo' <ul class="nav child_menu" style="display: none">';
 							for($ipart = 0; $ipart < sizeof($tabPartie) ; $ipart++)
 							{
-								echo '<li><a href="">'.$tabPartie[$ipart].'</a></li>';
+								echo '<li><a href="mooc.php?idM='.$idMooc.'&amp;idC='.$lignesChap[$i]["id_chapitre"].'"">'.$tabPartie[$ipart].'</a></li>';
 							}
 					echo'</ul></li>';
-		    }	
+			}
 		}
 	}
 	
-	function idParNumeroChapitre($idMooc,$bdd,$numeroChap)
+	function idParNumeroChapitre($idMooc,$bdd,$numeroChap) 
 	{
 		$selectChap = $bdd->prepare("SELECT * FROM chapitre WHERE id_mooc = $idMooc");
 		$selectChap->execute();
@@ -38,7 +38,7 @@
 		
 		if(sizeof($lignesChap) != 0 && $numeroChap<sizeof($lignesChap))
 		{
-			echo '<h3 class="name"> '.$lignesChap[$numeroChap]["nom"].' </h3>';
+			//echo '<h3 class="name"> '.$lignesChap[$numeroChap]["nom"].' </h3>';
 			
 			$idChap = $lignesChap[$numeroChap]["id_chapitre"];
 		
@@ -64,9 +64,7 @@
 		$lignesExo = $selectExo->fetchAll();
 		if(sizeof($lignesExo) != 0 && $numeroExo<sizeof($lignesExo))
 		{
-			echo'<div>
-					<h3 class="name"> Exercice n°'.$lignesExo[$numeroExo]["numero"].' </h3>
-				</div>';
+			//echo'<div><h3 class="name"> Exercice n°'.$lignesExo[$numeroExo]["numero"].' </h3></div>';
 			
 			$idExo = $lignesExo[$numeroExo]["id_exercice"];
 			
@@ -79,6 +77,19 @@
 		{
 			echo 'Aucun exercice présent';
 			return -1;
+		}
+	}
+	
+	function afficheChapitreExos($idMooc,$idChapitre,$bdd,$numeroExercice)
+	{
+		//$idChapitre = idParNumeroChapitre($idMooc,$bdd,0); // indice 0 pour le premier chapitre
+		if($idChapitre != -1) // -1 signifie que le chapitre n'existe pas
+		{	
+			$idExercice = idParNumeroExo($idMooc,$idChapitre,$bdd,$numeroExercice); // -1 signifie que l'exercice n'existe pas
+			if($idExercice != -1)
+			{
+				exoQcm($idMooc,$idChapitre,$idExercice,$bdd,$numeroExercice);
+			}
 		}
 	}
 

@@ -24,24 +24,28 @@
 			$tab = array();
 			$tab = preg_split('[-]', $reponse);
 			//var_dump($lignesExo);
-			 echo'<div class="content">
-					<div class="main">
-						<P class="name"> '.$lignesQcm[$iQcm]["question"].' </p> <label>';
-					for($itab = 0; $itab < sizeof($tab) ; $itab++)
-					{
-						echo '<input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios">
-						'.$tab[$itab].'<br>';
-					}
-						echo'</label>
-					</div>
-				</div>';
 			
+			 echo'
+			 
+			 <div class="form-group">
+				<label class="control-label col-md-6 col-sm-3 col-xs-12" for="first-name">'.$lignesQcm[$iQcm]["question"].'<span class="required">*</span></label><br><br>
+					';
+							for($itab = 0; $itab < sizeof($tab) ; $itab++)
+							{
+								echo '<div class="checkbox center">
+										<label class="hover">
+											<div class="icheckbox_flat-green checked hover" style="position: relative;"><input type="checkbox" class="flat"  style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> 
+											'.$tab[$itab].'<br>
+										</label>
+									</div>';
+							}
+			echo' </div>';
 		}
 		else
 		{
 			echo 'Aucun exercice présent';
 			return -1;
-		}
+		}	
 	}
 
 ?>
