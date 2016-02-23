@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../_include/connect.inc.php";  /// Connection bdd
+include
 
 /*
 	Modification du mot de passe depuis la page profif.php 
