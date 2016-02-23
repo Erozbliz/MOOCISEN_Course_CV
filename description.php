@@ -1,15 +1,14 @@
-<!DOCTYPE html>
 <?php
     include '_include/connect.inc.php';
 ?>
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Description">
     <meta name="author" content="">
 
     <title>Mooc Master test</title>
@@ -51,7 +50,7 @@
 
         <?php
             include '_include/header.php';
-            include '_model/fonctionsDescription.php';
+            include '_model/fonctionsDescription.php'; //Utilisation ici de $_GET['idM']
 	
 			getInfos();
 			
@@ -67,22 +66,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-
-    function rotateCard(btn){
-        var $card = $(btn).closest('.card-container');
-        console.log($card);
-        if($card.hasClass('hover')){
-            $card.removeClass('hover');
-        } else {
-            $card.addClass('hover');
-        }
-    }
-    
-    
-    </script>
-
 
 </body>
 

@@ -121,9 +121,8 @@
                                                 <h3 class="name">'.$lignes[$i]["nom"].'</h3>
                                                 <p class="profession">ISEN Toulon</p>
                                                 <p class="matiere">'.$lignes[$i]["matiere"].'</p>
-												<form action="description.php" method="post">
-													<button name="id" value='.$lignes[$i]["id_mooc"].'  class="btn btn-block btn-md btn-info">Description du cours</button>
-												</form>
+						
+                                                <a href="description.php?idM='.$lignes[$i]["id_mooc"].'"<button name="id" class="btn btn-block btn-md btn-info">Description du cours</button> </a>
                 
                                             </div>
                                             <div class="footer">

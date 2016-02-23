@@ -86,10 +86,10 @@
 						
 						$valid = 1;
 						$idMooc;
-						 if (isset($_GET['idM'])) {
-							$idMooc = $_GET['idM'];	
+						if (isset($_GET['idM'])) {
+						  $idMooc = $_GET['idM'];	
 
-						chapitresplusSousPartie($idMooc,$bdd);							
+						  chapitresplusSousPartie($idMooc,$bdd);							
 							//echo $idMooc;
 						}else{
 							$valid = 0;
