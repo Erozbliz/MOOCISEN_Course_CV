@@ -28,7 +28,7 @@
 			 echo'
 			 
 			 <div class="form-group">
-				<label class="control-label col-md-6 col-sm-3 col-xs-12" for="first-name">'.$lignesQcm[$iQcm]["question"].'<span class="required">*</span></label><br><br>
+				<h2 class="StepTitle center">'.$lignesQcm[$iQcm]["question"].'</h2><br>
 					';
 							for($itab = 0; $itab < sizeof($tab) ; $itab++)
 							{
@@ -40,12 +40,9 @@
 									</div>';
 							}
 			echo' </div>';
+			
+			return true;
 		}
-		else
-		{
-			echo 'Aucun exercice présent';
-			return -1;
-		}	
 	}
 
 ?>

@@ -256,16 +256,7 @@
 						 if (isset($_GET['idC'])) {
 							$idChap = $_GET['idC'];	
 							
-							if($idChap == 1)
-							{
-								include 'mooc/chapitres/chapitre1.php';
-							}
-							if($idChap == 2)
-							{
-								include 'mooc/chapitres/chapitre2.php';
-							}
-												
-							//echo $idMooc;
+							include 'mooc/chapitres/chapitre'.$idChap.'.php';
 						}else{
 							echo'Pas de chapitre selectionné';
 						}
