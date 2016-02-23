@@ -22,7 +22,7 @@ $verifSession = sessionValid();
 if($verifSession == 1){
 
 }else{
-    header ("location: ../_model/logout?erreur=Erreur formulaire");
+    header ("location: _model/logout?erreur=Erreur formulaire");
 }
 
 

@@ -1,6 +1,7 @@
 <?php
     session_start();
     include '_include/connect.inc.php';
+    include '_include/verif_session.php';
   //  echo $_SESSION["id_user"];
     try { 
         $select3 = $bdd->prepare("SELECT nom,prenom,email,pseudo,pays FROM user WHERE id_user = ".$_SESSION["id_user"]."");
