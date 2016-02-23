@@ -64,7 +64,11 @@ function formValid(){
         $_SESSION['nom'] 		= $result[0]['nom'];
         $_SESSION['prenom'] 	= $result[0]['prenom'];
 
-      	header('Location: ../index');
+        //------HISTORIQUE DES CONNEXIONS --------
+        include "insert_log.php";
+        //--------------------------------------
+
+      	header('Location: ../index?succes');
 	}else if($result[0]['email']==$email && $result[0]['password']!=$valPassword){
 		header ("location: ../inscription1?erreur=Mot de passe faux");
 	}else{
