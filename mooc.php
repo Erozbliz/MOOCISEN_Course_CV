@@ -292,6 +292,9 @@
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
 
+        <!-- jQuery -->
+<script src="js/jquery.js"></script>
+
     <script src="js/bootstrap.min.js"></script>
 
     <!-- gauge js -->
@@ -309,6 +312,13 @@
     <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
 
     <script src="js/custom.js"></script>
+
+    <!-- form validation -->
+    <script src="js/validator/validator.js"></script>
+
+    <!-- Validation -->
+    <script src="js/jqueryvalidate/jquery.validate.min.js"></script>
+    <script src="js/jqueryvalidate/additional-methods.min.js"></script>
 
     <!-- flot js -->
     <!--[if lte IE 8]><script type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
@@ -546,6 +556,84 @@
             });
         });
     </script>
+
+
+    <script>
+        // initialize the validator function
+        validator.message['date'] = 'not a real date';
+        // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+        $('form')
+            .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+            .on('change', 'select.required', validator.checkField)
+            .on('keypress', 'input[required][pattern]', validator.keypress);
+        $('.multi.required')
+            .on('keyup blur', 'input', function () {
+                validator.checkField.apply($(this).siblings().last()[0]);
+            });
+        // bind the validation to the form submit event
+        //$('#send').click('submit');//.prop('disabled', true);
+        //Mettre en commentaire si utilisation de jqueryvalidator
+        $('form').submit(function (e) {
+            e.preventDefault();
+            var submit = true;
+            // evaluate the form using generic validaing
+            if (!validator.checkAll($(this))) {
+                submit = false;
+            }
+            if (submit)
+                this.submit();
+            return false;
+        });
+    </script>
+
+ <script>
+    /*//----------------REGEX ---------------------------
+    $.validator.addMethod("mailRegex", function(value, element) {
+      return this.optional(element) || /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i.test(value);
+    });
+        
+    // --------------- Login JqueryValidator ---------
+    var login = $("#myform3");
+    login.validate({
+          //prendre le name
+          errorElement: 'span',
+          errorClass: 'help-block',
+          highlight: function(element, errorClass, validClass) {
+            $(element).closest('.form-group').addClass("has-error");
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).closest('.form-group').removeClass("has-error");
+        },
+        rules: {
+          name: {
+              required: true,
+              usernameRegex: true,
+              minlength: 2,
+          },
+          email: {
+              required: true,
+              mailRegex: true,
+              minlength: 3,
+          },
+          city:{
+          required: true,
+        },
+      },
+      messages: {
+        email: {
+            required: "email required",
+        },
+        name : {
+            required: "name required",
+        },
+     }
+    });
+
+   </script>
+
+
+
+
     <script>
         NProgress.done();
     </script>
