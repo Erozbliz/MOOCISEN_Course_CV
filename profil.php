@@ -1,17 +1,17 @@
 <?php
     session_start();
     include '_include/connect.inc.php';
-    include '_include/verif_session.php';
-  //  echo $_SESSION["id_user"];
-    try { 
-        $select3 = $bdd->prepare("SELECT nom,prenom,email,pseudo,pays FROM user WHERE id_user = ".$_SESSION["id_user"]."");
+    //include '_include/verif_session.php';
+    //echo $_SESSION["id_user"];
+     try { 
+        $select3 = $bdd->prepare("SELECT * FROM user WHERE id_user = ".$_SESSION["id_user"]."");
         $select3->execute();
         $lignes3 = $select3->fetchAll();
         $nom = $lignes3[0]["nom"];
         $prenom = $lignes3[0]["prenom"];
         $email = $lignes3[0]["email"];
         $pseudo  = $lignes3[0]["pseudo"];
-        $pays =  $lignes3[0]["pays"];
+        $pays =  $lignes3[0]["ville"];
     } catch (Exception $e) { 
         echo $e->errorMessage();
         echo "->erreur";

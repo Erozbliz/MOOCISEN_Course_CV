@@ -25,11 +25,8 @@
 			$tab = preg_split('[-]', $reponse);
 			//var_dump($lignesExo);
 			
-			 echo'
-			 
-			 <div class="form-group">
-				<h2 class="StepTitle center">'.$lignesQcm[$iQcm]["question"].'</h2><br>
-					';
+			 echo'<div class="form-group">
+				<h2 class="StepTitle center">'.$lignesQcm[$iQcm]["question"].'</h2><br>';
 							for($itab = 0; $itab < sizeof($tab) ; $itab++)
 							{
 								echo '<div class="checkbox center">
@@ -38,6 +35,7 @@
 											'.$tab[$itab].'<br>
 										</label>
 									</div>';
+									//echo 'ok';
 							}
 			echo' </div>';
 			

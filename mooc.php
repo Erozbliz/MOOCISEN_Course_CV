@@ -1,7 +1,7 @@
 <?php
     include '_include/connect.inc.php';
 	include '_model/requeteMooc.php';
-	include '_model/Qcm.php';
+	include '_model/qcm.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -459,7 +459,7 @@
                 color: "#3498DB"
             }
     ];
-        var myDoughnut = new Chart(document.getElementById("canvas1").getContext("2d")).Doughnut(doughnutData);
+      // var myDoughnut = new Chart(document.getElementById("canvas1").getContext("2d")).Doughnut(doughnutData);
     </script>
     <!-- /dashbord linegraph -->
 	 <!-- form wizard -->
@@ -587,7 +587,8 @@
     </script>
 
  <script>
-    /*//----------------REGEX ---------------------------
+    /*
+    //----------------REGEX ---------------------------
     $.validator.addMethod("mailRegex", function(value, element) {
       return this.optional(element) || /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i.test(value);
     });
@@ -627,7 +628,7 @@
             required: "name required",
         },
      }
-    });
+    });*/
 
    </script>
 

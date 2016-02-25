@@ -9,33 +9,33 @@ include "../_include/connect.inc.php";  /// Connection bdd
 function formValid(){
 	$verif = 1;
 	if (isset($_POST['surname'])) {
- 		echo $_POST['surname'];
+ 		echo "}".$_POST['surname'];
 	 }else{
 	 	$verif=0;
 	 }
 	 if (isset($_POST['name'])) {
-	 	echo $_POST['name'];
+	 	echo "}".$_POST['name'];
 	 }else{
 	 	$verif=0;
 	 }
 	 if (isset($_POST['pseudo'])) {
-	 	echo $_POST['pseudo'];
+	 	echo "}".$_POST['pseudo'];
 	 }else{
 	 	$verif=0;
 	 }
 	 if (isset($_POST['email'])) {
-	 	echo $_POST['email'];
+	 	echo "}".$_POST['email'];
 	 }else{
 	 	$verif=0;
 	 }
 	 if (isset($_POST['password'])) {
-	 	echo $_POST['password'];
+	 	echo "}".$_POST['password'];
 	 	echo "-->".md5($_POST['password']);
 	 }else{
 	 	$verif=0;
 	 }
 	 if (isset($_POST['selectPays'])) {
-	 	echo $_POST['selectPays'];
+	 	echo "}".$_POST['selectPays'];
 	 }else{
 	 	$verif=0;
 	 }
@@ -79,9 +79,11 @@ function insertUsertoBDD(){
 	$valPays = $_POST['selectPays'];
 	$valJob = $_POST['selectJob'];
 	try { 
-		$requete_prepare= $bdd->prepare("INSERT INTO user(nom,prenom,pseudo,email,password,pays,grade) VALUES('$valSurname', '$valName', '$valPseudo', '$valEmail', '$valPassword', '$valPays', 1)"); // on prépare notre requête
+		//$requete_prepare= $bdd->prepare("INSERT INTO user(nom,prenom,pseudo,email,password,pays,grade) VALUES('$valSurname', '$valName', '$valPseudo', '$valEmail', '$valPassword', '$valPays', 1)"); // on prépare notre requête
+		$requete_prepare= $bdd->prepare("INSERT INTO user(nom,prenom,pseudo,email,password,ville,grade) VALUES('$valSurname', '$valName', '$valPseudo', '$valEmail', '$valPassword', '$valPays', 1)"); // on prépare notre requête
 		$requete_prepare->execute();
-		echo "->OK";
+		var_dump($requete_prepare);
+		echo "->OK insertUsertoBDD";
 
 	} catch (Exception $e) { 
   		echo $e->errorMessage();
@@ -117,8 +119,8 @@ if($verifMail==1){
 }else if($verif==1){
 	insertUsertoBDD();
 	//Mettre startSession();
-	startSession();
-	header("Location: ../index.php");
+	//startSession();
+	header("Location: ../index.php?succes");
 }
 else{
 	echo '<br>wrong form';

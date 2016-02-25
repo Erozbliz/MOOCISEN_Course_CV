@@ -44,23 +44,8 @@ if (isset($_GET['idM']) && isset($_GET['idC'])) {
 
 
 					<!-- Send email -->
-					<h4>Exercices</h4>
-					<!--<div class="x_content">
-						<form name="form1" enctype="multipart/form-data" method="post" action="_model/send_attachement.php">
-						<label>Your Name
-						<input type="text" name="name" />
-						</label> 
-						<label>Your Email
-						<input type="email" name="email" />
-						</label> 
-						<label>Attachment
-						<input type="file" name="my_file" />
-						</label>
-						<label>
-						<input type="submit" name="button" value="Submit" />
-						</label>
-						</form>
-                    </div>-->
+					<h4>Envoi du travail
+					</h4>
 
                     <form class="form-horizontal form-label-left" enctype="multipart/form-data" action="_model/send_attachement.php" method="post" id="myform3" novalidate>
                         <div class="item form-group">
