@@ -81,7 +81,7 @@
 			{
 				for($i = 0; $i<sizeof($lignesChap); $i++)
 				{
-					echo '<li><a><i class="fa fa-book"></i>'.$lignesChap[$i]["nom"].'<br><span class="fa fa-chevron-down"></span></a>';
+					echo '<li><a><i class="fa fa-book"></i>'.$lignesChap[$i]["titre"].'<br><span class="fa fa-chevron-down"></span></a>';
 					$partie = $lignesChap[$i]["partie"];
 					$tabPartie = array();
 					$tabPartie = preg_split('[-]', $partie);
@@ -111,7 +111,7 @@
 
 			$lignesChap = $selectChap->fetchAll();
 			
-				echo '<h1> '.$lignesChap[$idChap-1]["nom"].' </h3>';
+				echo '<h1> '.$lignesChap[$idChap-1]["titre"].' </h3>';
 		}
 		catch (Exception $e){ 
 		echo $e->errorMessage();

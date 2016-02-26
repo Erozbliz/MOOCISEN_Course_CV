@@ -22,7 +22,7 @@ function getInfos()
 
 		echo'<div class="content">
 				<div class="main">
-					<h3 class="name"> Type de Mooc : '.$lignes[0]["nom"].' </h3>
+					<h3 class="name"> Type de Mooc : '.$lignes[0]["nom_mooc"].' </h3>
 					<h3 class="name"> Description : '.$lignes[0]["description"].' </h3>
 					<h3 class="name"> Prérequis : '.$lignes[0]["prerequis"].' </h3>
 					<h3 class="name"> Durée estimée: '.$lignes[0]["duree"].' heures </h3>
@@ -53,7 +53,7 @@ function getInfos2()
 	    $select->execute();
 	    $lignes = $select->fetchAll();
 
-		$scope_nom = $lignes[0]["nom"];
+		$scope_nom = $lignes[0]["nom_mooc"];
 		$scope_description = $lignes[0]["description"];
 		$scope_prerequis = $lignes[0]["prerequis"];
 		$scope_duree = $lignes[0]["duree"];
