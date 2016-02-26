@@ -1,17 +1,17 @@
 <?php
     session_start();
     include '_include/connect.inc.php';
-    //include '_include/verif_session.php';
-    //echo $_SESSION["id_user"];
-     try { 
-        $select3 = $bdd->prepare("SELECT * FROM user WHERE id_user = ".$_SESSION["id_user"]."");
+    include '_include/verif_session.php';
+  //  echo $_SESSION["id_user"];
+    try { 
+        $select3 = $bdd->prepare("SELECT nom,prenom,email,pseudo,pays FROM user WHERE id_user = ".$_SESSION["id_user"]."");
         $select3->execute();
         $lignes3 = $select3->fetchAll();
         $nom = $lignes3[0]["nom"];
         $prenom = $lignes3[0]["prenom"];
         $email = $lignes3[0]["email"];
         $pseudo  = $lignes3[0]["pseudo"];
-        $pays =  $lignes3[0]["ville"];
+        $pays =  $lignes3[0]["pays"];
     } catch (Exception $e) { 
         echo $e->errorMessage();
         echo "->erreur";
@@ -687,22 +687,17 @@
 
                                     <?php 
 
-                                        $trophy = $bdd->prepare('SELECT debloquer.date_obtention ,succes.nom, succes.description FROM succes INNER JOIN debloquer ON succes.id_succes = debloquer.id_succes INNER JOIN user ON user.id_user = debloquer.id_user WHERE debloquer.id_user = "'.$_SESSION['id_user'].'"');
+                                        $trophy = $bdd->prepare('SELECT debloquer.date_obtention ,succes.nom_succes, succes.description_succes FROM succes INNER JOIN debloquer ON succes.id_succes = debloquer.id_succes INNER JOIN user ON user.id_user = debloquer.id_user WHERE debloquer.id_user = "'.$_SESSION['id_user'].'"');
                                         $trophy->execute();
                                         $resuTrophy = $trophy->fetchAll();
 
-                                        $trophy1 = $bdd->prepare('SELECT DISTINCT succes.nom, succes.description FROM succes WHERE NOT EXISTS (SELECT * FROM debloquer WHERE succes.id_succes = debloquer.id_succes');
-                                        $trophy1->execute();
-                                        $resuTrophy1 = $trophy1->fetchAll();
-
-                                        //var_dump($resuTrophy1);
                                         
                                          for($i = 0; $i<sizeof($resuTrophy); $i++){
 
                                             echo'<div class="col-md-3">
                                                     <img src="images/trophy1.png" width="128" height="109" class="trophyUnlock" style="margin:auto;display:block">
-                                                    <p class="text-center"><b>'.$resuTrophy[$i]["nom"].'</b></p>
-                                                    <p class="text-center">'.$resuTrophy[$i]["description"].'</p>';
+                                                    <p class="text-center"><b>'.$resuTrophy[$i]["nom_succes"].'</b></p>
+                                                    <p class="text-center">'.$resuTrophy[$i]["description_succes"].'</p>';
                                                      $date = date_create($resuTrophy[$i]["date_obtention"]);
                                                     echo'<p class="text-center">Débloqué le : '.date_format($date, 'd F Y').'</p>
                                                 </div>';
@@ -729,18 +724,19 @@
 
                                     <?php 
 
-                                        $trophy1 = $bdd->prepare('SELECT DISTINCT succes.nom, succes.description FROM succes WHERE NOT EXISTS (SELECT * FROM debloquer WHERE succes.id_succes = debloquer.id_succes)');
+                                        $trophy1 = $bdd->prepare('SELECT nom_succes, description_succes FROM user INNER JOIN debloquer ON user.id_user=debloquer.id_user RIGHT JOIN succes ON debloquer.id_succes=succes.id_succes WHERE debloquer.id_succes IS NULL AND debloquer.id_user=1');
                                         $trophy1->execute();
                                         $resuTrophy1 = $trophy1->fetchAll();
 
-                                        //var_dump($resuTrophy1);
+                                        var_dump($resuTrophy1);
+                                        var_dump($_SESSION['id_user']);
                                         
                                          for($i = 0; $i<sizeof($resuTrophy1); $i++){
 
                                             echo'<div class="col-md-3">
                                                     <img src="images/trophy1.png" width="128" height="109" class="trophyLock" style="margin:auto;display:block">
-                                                    <p class="text-center"><b>'.$resuTrophy1[$i]["nom"].'</b></p>
-                                                    <p class="text-center">'.$resuTrophy1[$i]["description"].'</p> 
+                                                    <p class="text-center"><b>'.$resuTrophy1[$i]["nom_succes"].'</b></p>
+                                                    <p class="text-center">'.$resuTrophy1[$i]["description_succes"].'</p> 
                                                 </div>';
                                         }
 
@@ -763,7 +759,7 @@
 
                                     <?php 
 
-                                        $mooc = $bdd->prepare('SELECT mooc.nom FROM mooc INNER JOIN suivre ON mooc.id_mooc = suivre.id_mooc INNER JOIN user ON user.id_user = suivre.id_user WHERE user.id_user = "'.$_SESSION['id_user'].'"');
+                                        $mooc = $bdd->prepare('SELECT mooc.nom_mooc FROM mooc INNER JOIN suivre ON mooc.id_mooc = suivre.id_mooc INNER JOIN user ON user.id_user = suivre.id_user WHERE user.id_user = "'.$_SESSION['id_user'].'"');
                                         $mooc->execute();
                                         $resuMooc = $mooc->fetchAll();
 
@@ -772,7 +768,7 @@
                                          for($i = 0; $i<sizeof($resuMooc); $i++){
 
                                            echo'<div>
-                                                    <h4>'.$resuMooc[$i]["nom"].'</h4>
+                                                    <h4>'.$resuMooc[$i]["nom_mooc"].'</h4>
                                                 </div>';
                                         }
 
