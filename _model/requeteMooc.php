@@ -194,10 +194,9 @@
 				$idExercice = idParNumeroExo($idMooc,$idChapitre,$bdd,$numeroExercice); // -1 signifie que l'exercice n'existe pas
 				if($idExercice != -1)
 				{
-					if(exoQcm($idMooc,$idChapitre,$idExercice,$bdd,$numeroExercice) != true)
-					{
-						return -1;
-					}
+					exoQcm($idMooc,$idChapitre,$idExercice,$bdd,$numeroExercice);
+					exoDragDrop($idMooc,$idChapitre,$idExercice,$bdd,$numeroExercice);
+					
 					
 				}
 				else{

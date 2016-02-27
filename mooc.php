@@ -2,6 +2,7 @@
     include '_include/connect.inc.php';
 	include '_model/requeteMooc.php';
 	include '_model/qcm.php';
+	include '_model/dragdrop.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
