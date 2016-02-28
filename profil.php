@@ -115,9 +115,9 @@
                                         echo "
                                          <li><a><i class='glyphicon glyphicon-file'></i> ".$lignesMySub[$i]['nom_mooc']." <span class='fa fa-chevron-down'></span></a>
                                             <ul class='nav child_menu' style='display: none'>
-                                                <li><a href=''><span class='glyphicon glyphicon-calendar' aria-hidden='true'></span>  Inscrit = ".$lignesMySub[$i]['date_suivi']."</a>
+                                                <li><a href='mooc.php?idM=".$lignesMySub[$i]['id_mooc']."'><span class='glyphicon glyphicon-calendar' aria-hidden='true'></span>  Inscrit = ".$lignesMySub[$i]['date_suivi']."</a>
                                                 </li>
-                                                <li><a href=''><span class='glyphicon glyphicon-sort-by-attributes' aria-hidden='true'></span>  Avancement = ".$lignesMySub[$i]['avancement']."</a>
+                                                <li><a href='mooc.php?idM=".$lignesMySub[$i]['id_mooc']."&idC=".$lignesMySub[$i]['avancement']."'><span class='glyphicon glyphicon-sort-by-attributes' aria-hidden='true'></span>  Avancement = ".$lignesMySub[$i]['avancement']."</a>
                                                 </li>
                                             </ul>
                                         </li>";
