@@ -80,7 +80,7 @@ function insertUsertoBDD(){
 	$valJob = $_POST['selectJob'];
 	try { 
 		//$requete_prepare= $bdd->prepare("INSERT INTO user(nom,prenom,pseudo,email,password,pays,grade) VALUES('$valSurname', '$valName', '$valPseudo', '$valEmail', '$valPassword', '$valPays', 1)"); // on prépare notre requête
-		$requete_prepare= $bdd->prepare("INSERT INTO user(nom,prenom,pseudo,email,password,ville,grade) VALUES('$valSurname', '$valName', '$valPseudo', '$valEmail', '$valPassword', '$valPays', 1)"); // on prépare notre requête
+		$requete_prepare= $bdd->prepare("INSERT INTO user(nom,prenom,pseudo,email,password,pays,grade) VALUES('$valSurname', '$valName', '$valPseudo', '$valEmail', '$valPassword', '$valPays', 1)"); // on prépare notre requête
 		$requete_prepare->execute();
 		var_dump($requete_prepare);
 		echo "->OK insertUsertoBDD";
@@ -99,9 +99,14 @@ function startSession(){
 	$requete_prepare->execute();
 	$result = $requete_prepare->fetchAll( PDO::FETCH_ASSOC );
 	session_start();
-        $_SESSION['login'] = $result[0]['email'];
-        $_SESSION['pseudo'] = $result[0]['pseudo'];
-        $_SESSION['id_user'] = $result[0]['id_user'];
+        $_SESSION['login'] 		= $result[0]['email'];
+        $_SESSION['pseudo'] 	= $result[0]['pseudo'];
+        $_SESSION['id_user'] 	= $result[0]['id_user'];
+        $_SESSION['email'] 		= $result[0]['email'];
+        $_SESSION['pays'] 		= $result[0]['pays'];
+        $_SESSION['grade'] 		= $result[0]['grade'];
+        $_SESSION['nom'] 		= $result[0]['nom'];
+        $_SESSION['prenom'] 	= $result[0]['prenom'];
 	} catch (Exception $e) { 
 		echo $e->errorMessage();
   		echo "->erreur";
@@ -119,11 +124,12 @@ if($verifMail==1){
 }else if($verif==1){
 	insertUsertoBDD();
 	//Mettre startSession();
-	//startSession();
+	startSession();
 	header("Location: ../index.php?succes");
 }
 else{
 	echo '<br>wrong form';
+	header("Location: ../inscription1.php?erreur formulaire");
 }
 
 ?>

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include '_include/connect.inc.php';
 	include '_model/requeteMooc.php';
 	include '_model/qcm.php';
@@ -147,25 +148,36 @@
 
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
+                                <?php  
+                                if ((isset($_SESSION['email'])) && (!empty($_SESSION['email']))){
+                                //Si Connecter
+                                ?>
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/user.png" alt="">John Doe
+                                    <img src="images/user.png" alt="">
+                                     <?php echo $_SESSION['email']." "; ?>
                                     <span class=" fa fa-angle-down"></span>
+                                    <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                                        <li><a href="profil.php">Profil</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">Aide</a>
+                                        </li>
+                                        <li><a href="_model/logout.php"><i class="fa fa-sign-out pull-right"></i>Déconnexion</a>
+                                        </li>
+                                    </ul>
+                                    
                                 </a>
-                                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                    <li><a href="javascript:;">Profil</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="badge bg-red pull-right">50%</span>
-                                            <span>Réglages</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">Aide</a>
-                                    </li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Déconnexion</a>
-                                    </li>
-                                </ul>
+                                <?php  
+                                //Si pas connecter
+                                }else{
+                                    echo "<a href='inscription1.php' class='user-profile dropdown-toggle'>";
+                                    echo "<img src='images/user.png' alt=''/>";
+                                    echo "<span class=' fa fa-angle-down'></span>";
+                                echo "</a>";
+                                }
+                                ?>
+                                
+                                
                             </li>
 
                             <li role="presentation" class="dropdown">

@@ -81,7 +81,7 @@
 			{
 				for($i = 0; $i<sizeof($lignesChap); $i++)
 				{
-					echo '<li><a><i class="fa fa-book"></i>'.$lignesChap[$i]["titre"].'<br><span class="fa fa-chevron-down"></span></a>';
+					echo '<li><a><i class="fa fa-book"></i>'.$lignesChap[$i]["titre"].'<br><span class="fa fa-chevron-down"></span><br></a>';
 					$partie = $lignesChap[$i]["partie"];
 					$tabPartie = array();
 					$tabPartie = preg_split('[-]', $partie);
