@@ -25,13 +25,13 @@ A include dans :
     ?>
     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <img src="images/user.png" alt="">
-         <?php echo $_SESSION['email']." "; ?>
+         <?php 
+         $short_string=  $_SESSION['email']; //On va afficher juste les 5 premiers pour regler le pb d'affichage sur mobile
+         echo substr($short_string, 0, 10).".."; 
+         ?>
         <span class=" fa fa-angle-down"></span>
         <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
             <li><a href="profil.php">Profil</a>
-            </li>
-            <li>
-                <a href="javascript:;">Aide</a>
             </li>
             <li><a href="_model/logout.php"><i class="fa fa-sign-out pull-right"></i>Déconnexion</a>
             </li>
