@@ -8,7 +8,7 @@ function sessionValid(){
 	if ((isset($_SESSION['id_user'])) && (!empty($_SESSION['id_user'])))
     {
     	//session ok
-        echo $_SESSION['id_user'];
+        //echo $_SESSION['id_user'];
     }
     else
     {
@@ -21,7 +21,7 @@ function sessionValid(){
 
 $verifSession = sessionValid();
 if($verifSession == 1){
-    echo ("ok session valide");
+    //echo ("ok session valide");
 }else{
     header ("location: _model/logout?erreur=Erreur formulaire");
 }
