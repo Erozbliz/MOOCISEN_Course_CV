@@ -84,81 +84,65 @@
                             <img src="images/user.png" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>MOOC,</span>
-                            <h2>Comment faire un CV d'ingénieur</h2>
+                            <span>MOOC</span>
                         </div>
                     </div>
                     <!-- /menu prile quick info -->
 
-                    <br />
+                    <br /><br>
 
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-
+                        <br>
                         <div class="menu_section">
-                            <h3>Chapitre</h3>
+                            <h3>Moocs inscription</h3>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-home"></i> Chapitre 1<br> Identité<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a href="">Nom Prénom</a>
-                                        </li>
-                                        <li><a href="">Adresse</a>
-                                        </li>
-                                        <li><a href="">Télephone</a>
-                                        </li>
-                                        <li><a href="">Mail</a>
-                                        </li>
-                                        <li><a href="">Date de naissance</a>
-                                        </li>
-                                        <li><a href="">Nationnalité</a>
-                                        </li>
-                                        <li><a href="">Social</a>
-                                        </li>
-                                        <li><a href="">Evaluation</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                 <li><a><i class="fa fa-home"></i> Chapitre 2 <br> Formation<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a href="">Date</a>
-                                        </li>
-                                        <li><a href="">Intitulé</a>
-                                        </li>
-                                        <li><a href="">sigles</a>
-                                        </li>
-                                        <li><a href="">Lieu</a>
-                                        </li>
-                                        <li><a href="">Spé.</a>
-                                        </li>
-                                        <li><a href="">Autre info</a>
-                                        </li>
-                                        <li><a href="">Evaluation</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                            <?php
+                                try{
+                                    //Affiche ou l'utilisateur est inscrit
+                                    $selectMySub = $bdd->prepare("SELECT * FROM mooc NATURAL JOIN suivre WHERE suivre.id_user = ".$_SESSION["id_user"].""); 
+                                   // $selectMySub = $bdd->prepare("SELECT * FROM suivre WHERE id_user = ".$_SESSION["id_user"]);
+                                    $selectMySub->execute();
+                                    $lignesMySub = $selectMySub->fetchAll();
+                                    //var_dump($lignesMySub);
+                                    //echo "nb inscription".count($lignesMySub).'<br>';
+                                    
+                                    for($i=0;$i<count($lignesMySub);$i++){
+                                        //echo 'id->'.$lignesMySub[$i]['id_user'].'<br>';
+                                        //echo $lignesMySub[$i]['nom_mooc'].'<br>';
+                                        //echo $lignesMySub[$i]['date_suivi'].'<br>';
+                                        //echo $lignesMySub[$i]['avancement'].'<br>';
+                                        echo "
+                                         <li><a><i class='glyphicon glyphicon-file'></i> ".$lignesMySub[$i]['nom_mooc']." <span class='fa fa-chevron-down'></span></a>
+                                            <ul class='nav child_menu' style='display: none'>
+                                                <li><a href=''><span class='glyphicon glyphicon-calendar' aria-hidden='true'></span>  Inscrit = ".$lignesMySub[$i]['date_suivi']."</a>
+                                                </li>
+                                                <li><a href=''><span class='glyphicon glyphicon-sort-by-attributes' aria-hidden='true'></span>  Avancement = ".$lignesMySub[$i]['avancement']."</a>
+                                                </li>
+                                            </ul>
+                                        </li>";
+                                        
+                                    }
+                                    
+                                    
+
+                                }catch (Exception $e) { 
+                                    echo $e->errorMessage();
+                                    echo "->erreur mes cours";
+                                }
+
+
+                            ?>
                             </ul>
                         </div>
                         <div class="menu_section">
+
                             <h3>Menu</h3>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-question-circle"></i> Autre <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                       <!-- <li><a href="e_commerce.html">E-commerce</a>
-                                        </li>
-                                        <li><a href="projects.html">Projects</a>
-                                        </li>
-                                        <li><a href="project_detail.html">Project Detail</a>
-                                        </li>
-                                        <li><a href="contacts.html">Contacts</a>
-                                        </li>
-                                        <li><a href="profile.html">Profile</a>
-                                        </li>
-                                    -->
-                                    </ul>
-                                </li>
                                 <li><a><i class="fa fa-wrench"></i> Paramètres <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-
+                                        <li><a href="profil"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Profil</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-envelope"></i> Tchat <span class="label label-success pull-right">Coming Soon</span></a>
@@ -198,27 +182,8 @@
                         </div>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="">
-                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/user.png" alt="">John Doe
-                                    <span class=" fa fa-angle-down"></span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                    <li><a href="javascript:;">Profil</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="badge bg-red pull-right">50%</span>
-                                            <span>Réglages</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">Aide</a>
-                                    </li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Déconnexion</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <!-- AFFICHAGE MENU -->
+                           <?php include '_include/affiche_notif_menu.php'; ?>
 
                             <li role="presentation" class="dropdown">
                                 <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
@@ -1050,7 +1015,7 @@ $.validator.addMethod("mailRegex", function(value, element) {
                 color: "#3498DB"
             }
     ];
-        var myDoughnut = new Chart(document.getElementById("canvas1").getContext("2d")).Doughnut(doughnutData);
+        //var myDoughnut = new Chart(document.getElementById("canvas1").getContext("2d")).Doughnut(doughnutData);
     </script>
     <!-- /dashbord linegraph -->
 
