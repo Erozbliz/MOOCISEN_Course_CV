@@ -20,7 +20,7 @@
 							for($ipart = 0; $ipart < sizeof($tabPartie) ; $ipart++)
 							{
 								echo '<li>
-								<a href="#step-'.($ipart+1).'">
+								<a style="text-decoration:none; cursor:default;" href="#step-'.($ipart+1).' ">
 									<span class="step_no">'.($ipart+1).'</span>
 									<span class="step_descr">
 								n°'.($ipart+1).'<br />
