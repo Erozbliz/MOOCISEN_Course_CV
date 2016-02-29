@@ -51,6 +51,50 @@ $idChap;
 						Eviter de mettre la ville tout en capitale, peu d'intérêt d'attirer le regard. <br>
 						Cette information est indispensable mais moins prioritaire, en dehors de savoir où vous habitez par rapport au lieu de travail. Les premières actions sont traitées par téléphone ou mail sauf parfois pour vous informer (quand ils le font) d'une fin de non recevoir. <br>
 					</div>
+					<h4><b>Téléphone(s)</b></h4>
+					<div>
+						(Celui où l'on peut vous joindre, plutôt portable). Attention à votre message en cas d'absence. Pour le recruteur: Evidemment indispensable <br>
+					</div>
+					<h4><b>Mail(s)</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
+					<h4><b>Date de naissance et âge</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
+					<h4><b>Lieu de naissance (optionnel)</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
+					<h4><b>Nationalité (optionnel)</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
+					<h4><b>Réseau social (optionnel)</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
+					<h4><b>Mobilité (optionnel)</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
+					<h4><b>Bilingue (optionnel)</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
+					<h4><b>Phrase d’accroche (optionnel)</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
+					<h4><b>Photo (optionnel)</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
+					<h4><b>A eviter</b></h4>
+					<div>
+						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+					</div>
 				</div>
 			</div>
 		</div>
@@ -91,7 +135,7 @@ $idChap;
 			</div>
 		</div>
 
-		<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
 				<?php

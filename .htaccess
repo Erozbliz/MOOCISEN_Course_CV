@@ -1,4 +1,10 @@
 #Ne pas oublier activer le module rewrite_modul serveur apache
+#permet ici d'enlever le dosier mooc de l'url
+#RewriteEngine On
+#RewriteRule ^$ mooc/
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ mooc/$1
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]

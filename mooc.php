@@ -78,14 +78,10 @@
 
 			<!-- sidebar menu -->
 			<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-
 				<div class="menu_section">
 					<h3>Chapitres</h3>
 					<ul class="nav side-menu">
-					   
-	
 						<?php
-						
 						$valid = 1;
 						$idMooc;
 						if (isset($_GET['idM'])) {
@@ -96,9 +92,7 @@
 						}else{
 							$valid = 0;
 							echo'erreur';
-						}
-						
-									
+						}				
 						?>
 				</div>
 				<div class="menu_section">
@@ -149,9 +143,6 @@
                         <ul class="nav navbar-nav navbar-right">
                             <!-- AFFICHAGE MENU -->
                            <?php include '_include/affiche_notif_menu.php'; ?>
-
-                      
-
                         </ul>
                     </nav>
                 </div>
@@ -162,8 +153,6 @@
 
             <!-- page content -->
             <div class="right_col" role="main">
-
-
                 <?php
 						 if (isset($_GET['idC'])) {
 							$idChap = $_GET['idC'];	
