@@ -384,6 +384,48 @@
             });
 
         });
+
+        //  Wizard 2
+         $(document).ready(function () {
+            $('#wizard2').smartWizard({transitionEffect:'slide',onFinish:onFinishCallback});
+            //fonction si on click sur finish
+            function onFinishCallback(){
+                var selected = [];
+                $('#wizard2 input:checked').each(function() {
+                    selected.push($(this).attr('name'));
+                });
+                selected=JSON.stringify(selected);
+                console.log("-->"+selected);
+
+                //$('#wizard2').hide();
+                //ajax
+                $.ajax({
+                    url: '_model/wizard_ajax.php',
+                    type: 'POST', 
+                    data: {
+                        dataForm: selected
+                    },
+                    success: function(data) {
+                        //alert(data);
+                        var jsondata=$.parseJSON(data)
+                        $("#wizard2").html("Voici vos choix : "+jsondata); 
+                        //$('.alert-success').show();
+                    },
+                    error: function(json) {
+                        alert('false');
+                        //$('.alert-danger').show();
+                    }
+                });
+
+
+
+
+
+
+
+                alert('Finish Called id wizard2');
+            }     
+        });
     </script>
     <!-- datepicker -->
     <script type="text/javascript">

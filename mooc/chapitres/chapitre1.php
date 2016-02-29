@@ -24,15 +24,6 @@ $idChap;
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Settings 1</a>
-								</li>
-								<li><a href="#">Settings 2</a>
-								</li>
-							</ul>
-						</li>
 						<li><a class="close-link"><i class="fa fa-close"></i></a>
 						</li>
 					</ul>
@@ -61,39 +52,48 @@ $idChap;
 					</div>
 					<h4><b>Date de naissance et âge</b></h4>
 					<div>
-						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
-					</div>
+						Age entre parenthèses, profitez-en vous êtes jeunes (attention, à rectifier chaque année). Le recruteur contrôle la cohérence entre son besoin et votre parcours.					</div>
 					<h4><b>Lieu de naissance (optionnel)</b></h4>
 					<div>
-						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+						Vous pouvez mettre votre lieu de naissance. Si votre nom à une consonance étrangère et que vous êtes français. Il y a peu d'intérêt à le mettre si votre nom sonne bien Français
 					</div>
 					<h4><b>Nationalité (optionnel)</b></h4>
 					<div>
-						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+						Vous pouvez specifier votre nationalité si vous avez double nationalité. Il y a peu d'intérêt si votre nom sonne bien français. 
 					</div>
 					<h4><b>Réseau social (optionnel)</b></h4>
 					<div>
-						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+						Si les informations accessibles sont présentées de façons professionnelles. Pensez à mettre régulièrement à jour vos informations. Certains recruteurs (30%) surfent sur les réseaux sociaux en quête d'informations, voir prennent contact avec vous via ces réseaux.<br>
+						Réseaux utilisés par les recruteurs : linkedin, viadéo, tweeter, à la rigueur facebook (professionnel), mettre les statistiques.<br>
+						Site internet: Si en cohérence avec ce que vous souhaitez mettre en avant.<br>
+						Vérifiez qu'il fonctionne bien. Le recruteur fera sûrement un clic dessus.<br>					
 					</div>
 					<h4><b>Mobilité (optionnel)</b></h4>
 					<div>
-						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+						Nationale ou internationale si vous en êtes sûr. Information pouvant être utile pour le recruteur
 					</div>
 					<h4><b>Bilingue (optionnel)</b></h4>
 					<div>
-						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+						Il faut mettre que si c’est vrai. Spécifier les langues. Plus value évidente. Attention, le recruteur peut entamer le dialogue directement dans la langue que vous maitrisez en dehors du Français
 					</div>
 					<h4><b>Phrase d’accroche (optionnel)</b></h4>
 					<div>
-						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+						Elle doit traduire un objectif, une ambition, elle doit être le plus factuelle possible. Elle induit la façon dont sera lu votre cv par la suite. Le recruteur va être influencé. Soit il arrête de lire, soit il va contrôler sa lecture en fonction de la phrase d'accroche. <br>
+						Comme votre lettre de motivation ne sera lue qu’après de sévères sélections sur les CV. Ne vous privez pas de préciser sur votre CV vos objectifs. C’est en quelque sorte un préambule de votre lettre d’accompagnement et ce préambule peut pousser le recruteur à analyser d’avantage votre candidature.<br>
+ 						De plus en plus de cabinets indexent les CV dans divers outils, certains étant de simples index de recherche full-texte et d’autres sont équipés d’analyse sémantique, il vous faut donc utiliser dans votre CV le vocabulaire courant propre à votre secteur d’activité en évitant les acronymes et, si votre parcours professionnel un peu pauvre ne le permet pas, le paragraphe souhait et objectifs, vous donne toutes latitudes pour le faire.<br>
+						Les qualificatifs sur son CV ne doivent pas être choisis à la légère. LinkedIn a sorti les 10 mots les plus utilisés par ses membres. Les recruteurs se lassent de ne voir que des candidats créatifs, stratégiques et motivés.<br>					
+						Plutôt que de répéter les mêmes buzzwords, nous invitons nos membres à rendre compte de ce qu’ils ont accompli au travers de photos, de présentations ou d’autres exemples afin d’apporter la preuve qu’ils sont effectivement "passionnés", "experts" et "créatifs". »
 					</div>
 					<h4><b>Photo (optionnel)</b></h4>
 					<div>
-						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+						Votre photo doit donner envie de vous rencontrer, sourire, netteté, contraste, vêtement professionnel, attitude ouverte, couleurs. (évitez les scans de photo d'identité, les vieilles photos …). Elément fortement sujet à émotion donc à interprétation.<br>
+						Concrètement, se mettre en avant sur son CV en ligne commence par présenter une bonne photo. Les profils avec photo ont 14 fois plus de chances d’être consultés. Bien sûr, sourire professionnel et tenue adéquate sont de mise. <br>
+						Cependant, si vous avez rencontré des recruteurs par exemple sur un forum ou dans un salon professionnel, elle peut être un moyen pour eux de vous reconnaître. <br>					
 					</div>
 					<h4><b>A eviter</b></h4>
 					<div>
-						Idem + avec votre prénom et nom. Évitez les pseudos. Utilisez plutôt votre mail d'école. Attention aux providers qui sont souvent spammés (Hotmail …).<br> Pour le recruteur: Evidemment indispensable
+						Sexe: attention risque de discrimination à l'embauche si spécifiée (le prénom indique le sexe en général sinon ce sera la surprise pour le recruteur). Lui faire la surprise lors de l'entretien.<br>
+						Situation familiale: Ce n'est plus comme avant, les situations sont nombreuses (célibataire, marié, pacsé, compagnon, divorcé …) et aucune ne traduit votre mobilité réelle. Lui faire la surprise lors de l'entretien					
 					</div>
 				</div>
 			</div>
@@ -105,15 +105,6 @@ $idChap;
 					<h2> Exemple </h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Settings 1</a>
-								</li>
-								<li><a href="#">Settings 2</a>
-								</li>
-							</ul>
 						</li>
 						<li><a class="close-link"><i class="fa fa-close"></i></a>
 						</li>
@@ -144,15 +135,6 @@ $idChap;
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Settings 1</a>
-								</li>
-								<li><a href="#">Settings 2</a>
-								</li>
-							</ul>
-						</li>
 						<li><a class="close-link"><i class="fa fa-close"></i></a>
 						</li>
 					</ul>
@@ -163,7 +145,7 @@ $idChap;
 
 					<!-- Smart Wizard -->
 					<h3>Exercices</h3>
-					<div id="wizard" class="form_wizard wizard_horizontal">
+					<div id="wizard2" class="form_wizard wizard_horizontal">
 						<?php
 							creationWizardStep($idMooc,$idChap,$bdd);
 						?>
