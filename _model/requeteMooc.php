@@ -111,7 +111,7 @@
 
 			$lignesChap = $selectChap->fetchAll();
 			
-				echo '<h1> '.$lignesChap[$idChap-1]["titre"].' </h3>';
+				echo '<h2> '.$lignesChap[$idChap-1]["titre"].' </h2>';
 		}
 		catch (Exception $e){ 
 		echo $e->errorMessage();
