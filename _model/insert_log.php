@@ -40,13 +40,20 @@ function insertLogtoBDD(){
 	$ip = $_SERVER["REMOTE_ADDR"];
 
 	/* Récupération url */
-	$autre = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+	$lien = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
  	$bool = sessionValid();
+
+ 	/* Récupération info navigateur */
+ 	$browser = $_SERVER['HTTP_USER_AGENT'];
+ 	//echo "---->".$browser;
+
+ 	/* Récuperation avant derniere url */
+ 	$dernierlien = $_SERVER['REQUEST_URI'];
 
  	if($bool == 0)
  	{
  		try { 
-			$requete_prepare= $bdd->prepare("INSERT INTO log(connect_time,ip,autre) VALUES('$connect_time', '$ip', '$autre')"); // on prépare notre requête
+			$requete_prepare= $bdd->prepare("INSERT INTO log(connect_time,ip,lien,dernierlien,browser) VALUES('$connect_time', '$ip', '$lien', '$dernierlien', '$browser')"); // on prépare notre requête
 			$requete_prepare->execute();
 			echo "->OK sans session";
 		} catch (Exception $e) { 
@@ -55,7 +62,7 @@ function insertLogtoBDD(){
 		}
 	}else{
 		try { 
-			$requete_prepare= $bdd->prepare("INSERT INTO log(id_user,connect_time,email,ip,autre) VALUES('$id_user', '$connect_time', '$email', '$ip', '$autre')"); // on prépare notre requête
+			$requete_prepare= $bdd->prepare("INSERT INTO log(id_user,connect_time,email,ip,lien,dernierlien,browser) VALUES('$id_user', '$connect_time', '$email', '$ip', '$lien', '$dernierlien', '$browser')"); // on prépare notre requête
 			$requete_prepare->execute();
 			echo "->OK avec session";
 		} catch (Exception $e) { 
