@@ -39,6 +39,8 @@
 										//echo 'ok';
 								}
 				echo' </div><br>';
+				//Type hidden qui correcpond au hidden
+				echo ''
 				
 				//}
 			}
