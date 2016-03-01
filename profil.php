@@ -567,17 +567,28 @@
                         </div>
                     </div>
                     <!-- /fin row -->
+                    <?php  // count nombre trophées débloqués et nombre total de trophées
+
+                        $unlockTrophy = $bdd->query('SELECT COUNT(id_succes) AS cpt FROM debloquer WHERE id_user= "'.$_SESSION['id_user'].'"');
+                        $donnees = $unlockTrophy->fetch();
+                        $unlockTrophy->closeCursor();
+                  
+                        $allTrophy = $bdd->query('SELECT COUNT(id_succes) AS total FROM succes');
+                        $donnees1 = $allTrophy->fetch();
+                        $allTrophy->closeCursor();
+
+                    ?>
 
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Mes trophées <small>sub title</small></h2>
+                                    <h2>Mes trophées <small><?php echo $donnees['cpt'].'/'.$donnees1['total'].' succès débloqué(s)';?> </small></h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
 
-                                    <?php 
+                                    <?php // trophées débloqués par l'utilisateur
 
                                         $trophy = $bdd->prepare('SELECT debloquer.date_obtention ,succes.nom_succes, succes.description_succes FROM succes INNER JOIN debloquer ON succes.id_succes = debloquer.id_succes INNER JOIN user ON user.id_user = debloquer.id_user WHERE debloquer.id_user = "'.$_SESSION['id_user'].'"');
                                         $trophy->execute();
@@ -593,10 +604,7 @@
                                                      $date = date_create($resuTrophy[$i]["date_obtention"]);
                                                     echo'<p class="text-center">Débloqué le : '.date_format($date, 'd F Y').'</p>
                                                 </div>';
-                                        }
-
-                                       
-                                        
+                                        } 
                                     ?> 
 
                                 </div>
@@ -609,20 +617,17 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Trophées restants <small>sub title</small></h2>
+                                    <h2>Trophées restants <small><?php echo ($donnees1['total']-$donnees['cpt']).' succès non débloqué(s)';?></small></h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
 
-                                    <?php 
+                                    <?php // trophées non débloqués par l'utilisateur
 
-                                        $trophy1 = $bdd->prepare('SELECT nom_succes, description_succes FROM user INNER JOIN debloquer ON user.id_user=debloquer.id_user RIGHT JOIN succes ON debloquer.id_succes=succes.id_succes WHERE debloquer.id_succes IS NULL AND debloquer.id_user=1');
+                                        $trophy1 = $bdd->prepare('SELECT * FROM succes WHERE id_succes NOT IN( SELECT id_succes FROM debloquer WHERE id_user= "'.$_SESSION['id_user'].'")');
                                         $trophy1->execute();
                                         $resuTrophy1 = $trophy1->fetchAll();
-
-                                        var_dump($resuTrophy1);
-                                        var_dump($_SESSION['id_user']);
-                                        
+        
                                          for($i = 0; $i<sizeof($resuTrophy1); $i++){
 
                                             echo'<div class="col-md-3">
@@ -640,31 +645,68 @@
                     </div>
                     <!-- /fin row -->
 
+                    <?php  // count nombre trophées débloqués et nombre total de trophées
+
+                        $corseFollow = $bdd->query('SELECT COUNT(id_user) AS cpt2 FROM suivre WHERE id_user= "'.$_SESSION['id_user'].'"');
+                        $donnees2 = $corseFollow->fetch();
+                        $corseFollow->closeCursor();
+                  
+                    ?>
+
+
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Mes cours <small>sub title</small></h2>
+                                    <h2>Mes cours <small><?php echo ($donnees2["cpt2"]).' cours suivis';?></small></h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
 
-                                    <?php 
+                                    <table class="table table-striped projects">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 1%">#</th>
+                                                <th style="width: 20%">Nom du cours</th>
+                                                <th>Avancement</th>
+                                                <th style="width: 20%">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                        $mooc = $bdd->prepare('SELECT mooc.nom_mooc FROM mooc INNER JOIN suivre ON mooc.id_mooc = suivre.id_mooc INNER JOIN user ON user.id_user = suivre.id_user WHERE user.id_user = "'.$_SESSION['id_user'].'"');
-                                        $mooc->execute();
-                                        $resuMooc = $mooc->fetchAll();
+                                            <?php 
 
-                                        //var_dump($resuMooc);
-                                        
-                                         for($i = 0; $i<sizeof($resuMooc); $i++){
+                                                $mooc = $bdd->prepare('SELECT mooc.nom_mooc, suivre.date_suivi FROM mooc INNER JOIN suivre ON mooc.id_mooc = suivre.id_mooc INNER JOIN user ON user.id_user = suivre.id_user WHERE user.id_user = "'.$_SESSION['id_user'].'"');
+                                                $mooc->execute();
+                                                $resuMooc = $mooc->fetchAll();
 
-                                           echo'<div>
-                                                    <h4>'.$resuMooc[$i]["nom_mooc"].'</h4>
-                                                </div>';
-                                        }
+                                                //var_dump($resuMooc);
+                                                
+                                                 for($i = 0; $i<sizeof($resuMooc); $i++){
 
-                                    ?> 
+                                                    echo'<tr>
+                                                        <td>#</td>
+                                                        <td>
+                                                            <a>'.$resuMooc[$i]["nom_mooc"].'</a>
+                                                            <br />
+                                                            <small>Inscrit le '.$resuMooc[$i]["date_suivi"].'</small>
+                                                        </td>
+                                                        <td class="project_progress">
+                                                            <div class="progress progress_sm">
+                                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
+                                                            </div>
+                                                            <small>57% Complete</small>
+                                                        </td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Aller </a>
+                                                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Ne plus suivre </a>
+                                                        </td>
+                                                    </tr>';   
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                    <!-- end project list -->
 
                                 </div>
                             </div>
