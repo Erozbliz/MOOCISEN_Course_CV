@@ -369,7 +369,7 @@
 	 <!-- form wizard -->
     <script type="text/javascript" src="js/wizard/jquery.smartWizard.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+        /*$(document).ready(function () {
             // Smart Wizard 	
             $('#wizard').smartWizard();
 
@@ -377,27 +377,27 @@
                 $('#wizard').smartWizard('showMessage', 'Finish Clicked');
                 //alert('Finish Clicked');
             }
-        });
+        });*/
 
-        $(document).ready(function () {
+        /*$(document).ready(function () {
             // Smart Wizard	
             $('#wizard_verticle').smartWizard({
                 transitionEffect: 'slide'
             });
 
-        });
+        });*/
 
-        //  Wizard 2
+        //  Wizard 
          $(document).ready(function () {
             //$("#solucebox").html('okok');
-            $('#wizard2').smartWizard({transitionEffect:'slide',onFinish:onFinishCallback});
+            $('#wizard').smartWizard({transitionEffect:'slide',onFinish:onFinishCallback});
             //fonction si on click sur finish
             function onFinishCallback(){
 
                
                 //nos choix
                 var selected = [];
-                $('#wizard2 input:checked').each(function() {
+                $('#wizard input:checked').each(function() {
                     selected.push($(this).attr('name'));
                 });
                 selected=JSON.stringify(selected);
@@ -423,7 +423,7 @@
 
 
 
-                //$('#wizard2').hide();
+                //$('#wizard').hide();
                 //ajax
                 $.ajax({
                     url: '_model/wizard_ajax.php',
@@ -442,8 +442,8 @@
                         jsonsoluce=jsonsoluce.replace(/"/g,"",jsonsoluce);
                         jsonsoluce=jsonsoluce.replace(/,]/g,"]",jsonsoluce);
 
-                        //ne pas oublier solucebox dans capitre
-                        $("#solucebox").html(""); 
+                        //ne pas oublier le <div id='solucebox'></div> dans chapitre (mooc/chapitre/..)
+                        $("#solucebox").html(""); //Ré
                         $("#solucebox").append("Voici vos choix : "+jsondata+"<br> Les réponse de l'exo: "+jsonsoluce); 
                         if(jsondata==jsonsoluce){
                             $("#solucebox").append("<br><b>CORRECT</b>"); 
@@ -477,7 +477,7 @@
 
 
 
-                alert('Finish Called id wizard2');
+                alert('Finish Called id wizard');
             }     
         });
     </script>

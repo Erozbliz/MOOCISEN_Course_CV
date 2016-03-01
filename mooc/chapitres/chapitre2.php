@@ -101,6 +101,8 @@ $idChap;
 							creationWizardStep($idMooc,$idChap,$bdd);
 						?>
 					</div>
+					<!-- IMPORTANT AFFICHE LES SOLUTIONS -->
+					<div id="solucebox"></div>
 				</div>
 			</div>
 		</div>

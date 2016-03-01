@@ -145,12 +145,13 @@ $idChap;
 
 					<!-- Smart Wizard -->
 					<h3>Exercices</h3>
-					<div id="wizard2" class="form_wizard wizard_horizontal">
+					<div id="wizard" class="form_wizard wizard_horizontal">
 						<?php
 							creationWizardStep($idMooc,$idChap,$bdd);
 						?>
 						
 					</div>
+					<!-- IMPORTANT AFFICHE LES SOLUTIONS -->
 					<div id="solucebox"></div>
 				</div>
 			</div>
