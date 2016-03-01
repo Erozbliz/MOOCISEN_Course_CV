@@ -392,12 +392,28 @@
             $('#wizard2').smartWizard({transitionEffect:'slide',onFinish:onFinishCallback});
             //fonction si on click sur finish
             function onFinishCallback(){
+
+                //nos choix
                 var selected = [];
                 $('#wizard2 input:checked').each(function() {
                     selected.push($(this).attr('name'));
                 });
                 selected=JSON.stringify(selected);
-                console.log("-->"+selected);
+                console.log("Vos choix-->"+selected);
+
+                //réponse id=soluce
+               var soluce = [];
+                $('input#soluce').each(function() {
+                    soluce.push($(this).val());
+                });
+                 
+                 //alert($('input#soluce').val());
+                 soluce.pop();
+                 console.log("Les Réponse-->"+soluce);
+                 var jsonsoluce=JSON.stringify(soluce);
+                 //alert($('input:hidden[name=zyx]').val());
+
+
 
                 //$('#wizard2').hide();
                 //ajax
@@ -410,7 +426,7 @@
                     success: function(data) {
                         //alert(data);
                         var jsondata=$.parseJSON(data)
-                        $("#wizard2").html("Voici vos choix : "+jsondata); 
+                        $("#wizard2").html("Voici vos choix : "+jsondata+"<br> Les réponse : "+jsonsoluce); 
                         //$('.alert-success').show();
                     },
                     error: function(json) {
