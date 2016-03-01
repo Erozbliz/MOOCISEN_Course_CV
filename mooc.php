@@ -429,7 +429,8 @@
                     url: '_model/wizard_ajax.php',
                     type: 'POST', 
                     data: {
-                        dataForm: selected
+                        dataForm: selected,
+                        dataForm2:jsonsoluce,
                     },
                     success: function(data) {
                         //alert(data);
@@ -447,7 +448,7 @@
                         if(jsondata==jsonsoluce){
                             $("#solucebox").append("<br><b>BIEN</b>"); 
                         }else{
-                             $("#solucebox").append("<br><b>FAsUX</b>"); 
+                             $("#solucebox").append("<br><b>FAUX</b>"); 
                         }
  
                     },

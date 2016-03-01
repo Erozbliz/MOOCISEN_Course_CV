@@ -22,17 +22,26 @@
 			//Reponse du qcm
 			$tabHint = array();
 			$tabSolution = array();
+			$numCaseTab=0; 
+			//echo "size".$lignesQcm;
+			//var_dump($lignesQcm);
 			for($i = 0; $i < sizeof($lignesQcm) ; $i++)
 			{
 				$solution = $lignesQcm[$i]["solution"];
 				$tabHint = preg_split('[-]', $solution);
+
 				for($itab = 0; $itab < sizeof($tabHint) ; $itab++)
 				{
-					$tabSolution[$itab]=$tabHint[$itab];
+					//var_dump($tabHint);
+					//echo sizeof($tabHint);
+					//echo "**".$tabHint[$itab];
+					$tabSolution[$numCaseTab]=$tabHint[$itab];
+					$numCaseTab++;
 				}
 			}
-
+			//var_dump($tabSolution);
 			//Type hidden qui correpond au reponse pour le qcm
+
 			$tabSolution=implode(",",$tabSolution);
 			//$tabSolution=json_encode($tabSolution);
 			//echo 'tab réponse='.$tabSolution;
@@ -62,8 +71,7 @@
 												'.$tab[$itab].'<br>
 											</label>
 										</div>';
-										//echo 'ok';
-										
+										//echo 'ok';	
 								}
 				echo' </div><br>';
 			
