@@ -149,7 +149,9 @@ $idChap;
 						<?php
 							creationWizardStep($idMooc,$idChap,$bdd);
 						?>
+						
 					</div>
+					<div id="solucebox"></div>
 				</div>
 			</div>
 		</div>

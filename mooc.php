@@ -439,11 +439,15 @@
                         //car les array ne sont pas pareil
                         jsondata=jsondata.replace(/"/g,"",jsondata); //remplace les " par rien
                         jsonsoluce=jsonsoluce.replace(/"/g,"",jsonsoluce);
-                         $("#wizard2").append("Voici vos choix : "+jsondata+"<br> Les réponse de l'exo: "+jsonsoluce); 
+                        jsonsoluce=jsonsoluce.replace(/,]/g,"]",jsonsoluce);
+
+                        //ne pas oublier solucebox dans capitre
+                        $("#solucebox").html(""); 
+                        $("#solucebox").append("Voici vos choix : "+jsondata+"<br> Les réponse de l'exo: "+jsonsoluce); 
                         if(jsondata==jsonsoluce){
-                            $("#wizard2").append("<br><b>BIEN</b>"); 
+                            $("#solucebox").append("<br><b>BIEN</b>"); 
                         }else{
-                             $("#wizard2").append("<br><b>FAsUX</b>"); 
+                             $("#solucebox").append("<br><b>FAsUX</b>"); 
                         }
  
                     },
