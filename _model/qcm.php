@@ -38,6 +38,7 @@
 			//echo 'tab réponse='.$tabSolution;
 			//Réponse présent
 			echo "<input type='hidden' id='soluce' name='zyx' value='".$tabSolution."'/>";
+			echo "<div id='solucebox'></div>"; //affichage sur show
 
 
 			//affichage du QCM
@@ -69,6 +70,8 @@
 				
 				//}
 			}
+
+
 		}
 		catch (Exception $e) { 
 		echo $e->errorMessage();

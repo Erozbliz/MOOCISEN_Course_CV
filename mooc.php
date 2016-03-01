@@ -389,10 +389,12 @@
 
         //  Wizard 2
          $(document).ready(function () {
+            //$("#solucebox").html('okok');
             $('#wizard2').smartWizard({transitionEffect:'slide',onFinish:onFinishCallback});
             //fonction si on click sur finish
             function onFinishCallback(){
 
+               
                 //nos choix
                 var selected = [];
                 $('#wizard2 input:checked').each(function() {
@@ -408,10 +410,16 @@
                 });
                  
                  //alert($('input#soluce').val());
-                 soluce.pop();
+                 soluce.pop(); //enleve le , à la fin
                  console.log("Les Réponse-->"+soluce);
+
+                // var barca = '{"dataForm":"'+soluce+'"}';
+                // var jsonbarca=$.parseJSON(barca);
+                // console.log("jsonbarca-->"+jsonbarca);
+
                  var jsonsoluce=JSON.stringify(soluce);
                  //alert($('input:hidden[name=zyx]').val());
+
 
 
 
@@ -426,8 +434,18 @@
                     success: function(data) {
                         //alert(data);
                         var jsondata=$.parseJSON(data)
-                        $("#wizard2").html("Voici vos choix : "+jsondata+"<br> Les réponse : "+jsonsoluce); 
-                        //$('.alert-success').show();
+                        ///console.log("jsondata-->"+jsondata);
+                        //$("#solucebox").prepend("Voici vos choix : "+jsondata+"<br> Les réponse de l'exo: "+jsonsoluce); 
+                        //car les array ne sont pas pareil
+                        jsondata=jsondata.replace(/"/g,"",jsondata); //remplace les " par rien
+                        jsonsoluce=jsonsoluce.replace(/"/g,"",jsonsoluce);
+                         $("#wizard2").append("Voici vos choix : "+jsondata+"<br> Les réponse de l'exo: "+jsonsoluce); 
+                        if(jsondata==jsonsoluce){
+                            $("#wizard2").append("<br><b>BIEN</b>"); 
+                        }else{
+                             $("#wizard2").append("<br><b>FAsUX</b>"); 
+                        }
+ 
                     },
                     error: function(json) {
                         alert('false');
