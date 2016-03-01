@@ -30,6 +30,8 @@
     <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />
 
     <script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
     <script src="js/nprogress.js"></script>
     <script>
         NProgress.start();

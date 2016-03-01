@@ -12,10 +12,6 @@
 			$selectExo->execute();
 			
 			$lignesExo = $selectExo->fetchAll();
-			//$idQcmOk = $lignesExo[$numeroExo]["id_qcm"];
-			//$idDragOk = $lignesExo[$numeroExo]["id_drag"];
-			//if($idQcmOk != NULL && $idDragOk == NULL)
-			//{
 			
 			$i = 0;
 			$selectqcm = $bdd->prepare("SELECT * FROM qcm WHERE id_exercice = $idExo");
@@ -46,7 +42,6 @@
 				
 				//}
 			}
-			
 		}
 		catch (Exception $e) { 
 		echo $e->errorMessage();
