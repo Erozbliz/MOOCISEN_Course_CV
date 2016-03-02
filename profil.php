@@ -668,7 +668,8 @@
                                             <tr>
                                                 <th style="width: 1%">#</th>
                                                 <th style="width: 20%">Nom du cours</th>
-                                                <th>Avancement</th>
+                                                <th style="width: 40%">Avancement</th>
+                                                <th style="width: 10%">Score</th>
                                                 <th style="width: 20%">Actions</th>
                                             </tr>
                                         </thead>
@@ -682,14 +683,14 @@
 
                                                 //var_dump($resuMooc);
                                                 
-                                                 for($i = 0; $i<sizeof($resuMooc); $i++){
+                                                 for($i = 0; $i<sizeof($lignesMySub); $i++){
 
                                                     echo'<tr>
                                                         <td>#</td>
                                                         <td>
-                                                            <a>'.$resuMooc[$i]["nom_mooc"].'</a>
+                                                            <a>'.$lignesMySub[$i]['nom_mooc'].'</a>
                                                             <br />
-                                                            <small>Inscrit le '.$resuMooc[$i]["date_suivi"].'</small>
+                                                            <small>Inscrit le '.$lignesMySub[$i]["date_suivi"].'</small>
                                                         </td>
                                                         <td class="project_progress">
                                                             <div class="progress progress_sm">
@@ -698,7 +699,10 @@
                                                             <small>57% Complete</small>
                                                         </td>
                                                         <td>
-                                                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Aller </a>
+                                                            <p class="text-center"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 3300/10.000</p>
+                                                        </td>
+                                                        <td>
+                                                            <a href="mooc.php?idM='.$lignesMySub[$i]['id_mooc'].'&idC='.$lignesMySub[$i]['avancement'].'" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Aller </a>
                                                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Ne plus suivre </a>
                                                         </td>
                                                     </tr>';   
