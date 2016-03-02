@@ -2,7 +2,7 @@
 $idMooc;
 $idChap;
 
- if (isset($_GET['idM']) && isset($_GET['idC'])) {
+if(isset($_GET['idM']) && isset($_GET['idC'])) {
 	$idMooc = $_GET['idM'];
 	$idChap = $_GET['idC'];	
 
@@ -149,10 +149,18 @@ $idChap;
 						<?php
 							creationWizardStep($idMooc,$idChap,$bdd);
 						?>
-						
 					</div>
 					<!-- IMPORTANT AFFICHE LES SOLUTIONS -->
 					<div id="solucebox"></div>
+					<!-- IMPORTANT POUR LES REPONSE AU QCM -->
+					<?php 
+					/*if(isset($_GET['idM']) && isset($_GET['idC'])) {
+						//$idMooc = $_GET['idM'];
+						echo '<div id="'.$_GET['idM'].'"></div>';
+						$idChap = $_GET['idC'];	
+					}*/
+
+				?>
 				</div>
 			</div>
 		</div>

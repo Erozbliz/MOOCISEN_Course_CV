@@ -47,7 +47,14 @@
 			//echo 'tab réponse='.$tabSolution;
 			//Réponse présent
 			echo "<input type='hidden' id='soluce' name='zyx' value='".$tabSolution."'/>";
+			//echo "<input type='hidden' id='idexo' name='nameexo' value='".$tabSolution."'/>";
 			//echo '<div id="solucebox"></div>'; //affichage sur show
+			/*if(isset($idMooc) && isset($_GET['idC'])){
+				echo "<input type='hidden' id='idm' name='idm' value='".$tabSolution."'/>";
+			}*/
+			echo "<input type='hidden' id='idm' name='idm' value='".$idMooc."'/>";
+			echo "<input type='hidden' id='idc' name='idc' value='".$idChap."'/>";
+			echo "<input type='hidden' id='ide' name='ide' value='".$idExo."'/>";
 
 
 			//affichage du QCM
