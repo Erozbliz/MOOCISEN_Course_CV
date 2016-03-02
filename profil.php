@@ -676,19 +676,13 @@
                                         <tbody>
 
                                             <?php 
-
-                                                $mooc = $bdd->prepare('SELECT mooc.nom_mooc, suivre.date_suivi FROM mooc INNER JOIN suivre ON mooc.id_mooc = suivre.id_mooc INNER JOIN user ON user.id_user = suivre.id_user WHERE user.id_user = "'.$_SESSION['id_user'].'"');
-                                                $mooc->execute();
-                                                $resuMooc = $mooc->fetchAll();
-
-                                                //var_dump($resuMooc);
                                                 
                                                  for($i = 0; $i<sizeof($lignesMySub); $i++){
 
                                                     echo'<tr>
                                                         <td>#</td>
                                                         <td>
-                                                            <a>'.$lignesMySub[$i]['nom_mooc'].'</a>
+                                                            <a href="description.php?idM='.$lignesMySub[$i]['id_mooc'].'">'.$lignesMySub[$i]['nom_mooc'].'</a>
                                                             <br />
                                                             <small>Inscrit le '.$lignesMySub[$i]["date_suivi"].'</small>
                                                         </td>

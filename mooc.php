@@ -155,15 +155,18 @@
             <!-- page content -->
             <div class="right_col" role="main">
                 <?php
-						 if (isset($_GET['idC'])) {
-							$idChap = $_GET['idC'];	
-							
-							include 'mooc/chapitres/chapitre'.$idChap.'.php';
-						}else{
-							echo'<h3>Introduction</h3>';
-                            include 'mooc/chapitres/chapitre0.php';
-
-						}
+				 if(isset($_GET['idC']) && isset($_GET['idM'])) {
+					$idChap = $_GET['idC'];	
+                    $idMooc = $_GET['idM'];
+                       
+                            include 'mooc'.$idMooc.'/chapitres/chapitre'.$idChap.'.php';
+                    }
+                    else if(isset($_GET['idM'])){
+                        $idMooc = $_GET['idM'];
+                         echo'<h3>Introduction</h3>';
+                         include 'mooc'.$idMooc.'/chapitres/chapitre0.php';
+                    }		
+						
 				?>
 
 
