@@ -25,16 +25,16 @@
 
     <!-- Custom styling plus plugins -->
     <link href="css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.1.css" />
+   <!--  <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.1.css" />-->
     <link href="css/icheck/flat/green.css" rel="stylesheet" />
     <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />
 
     <script src="js/jquery.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.validate.js"></script>
-    <script src="js/nprogress.js"></script>
+    <!--<script src="js/nprogress.js"></script>-->
     <script>
-        NProgress.start();
+        //NProgress.start();
     </script>
     
     <!--[if lt IE 9]>
@@ -203,7 +203,7 @@
 
     <!-- gauge js -->
     <script type="text/javascript" src="js/gauge/gauge.min.js"></script>
-    <script type="text/javascript" src="js/gauge/gauge_demo.js"></script>
+    <!--<script type="text/javascript" src="js/gauge/gauge_demo.js"></script>-->
     <!-- chart js -->
     <script src="js/chartjs/chart.min.js"></script>
     <!-- bootstrap progress js -->
@@ -296,13 +296,14 @@
         });
     </script>
 
-    <!-- worldmap -->
+    <!-- worldmap 
     <script type="text/javascript" src="js/maps/jquery-jvectormap-2.0.1.min.js"></script>
     <script type="text/javascript" src="js/maps/gdp-data.js"></script>
     <script type="text/javascript" src="js/maps/jquery-jvectormap-world-mill-en.js"></script>
     <script type="text/javascript" src="js/maps/jquery-jvectormap-us-aea-en.js"></script>
+    -->
     <script>
-        $(function () {
+      /*  $(function () {
             $('#world-map-gdp').vectorMap({
                 map: 'world_mill_en',
                 backgroundColor: 'transparent',
@@ -318,7 +319,7 @@
                     el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
                 }
             });
-        });
+        });*/
     </script>
     <!-- skycons -->
     <script src="js/skycons/skycons.js"></script>
@@ -634,7 +635,7 @@
 
 
     <script>
-        NProgress.done();
+       // NProgress.done();
     </script>
     <!-- /datepicker -->
     <!-- /footer content -->
