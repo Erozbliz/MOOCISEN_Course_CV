@@ -2,6 +2,8 @@
 
 ## Presensation
 
+* [Version Live](http://colombies.com/app/) 
+
 Mooc Isen est un projet réalisé par des étudiants de l'[ISEN-Toulon](http://www.isen.fr/).
 
 Mooc Isen permet de consulter gratuitement des cours en ligne proposés par les professeurs et étudiants de l'ISEN Brest-Rennes, Fès, Lille, Nimes et Aix-Marseille/Nîmes/Toulon.
@@ -27,6 +29,7 @@ Mooc Isen utilise les technologies suivantes:
 ## Installation
 
 1. Importer le fichier `mooc.sql` dans MySQL. La base de données sera créé automatiquement.
+2. Modifier le fichier app/includes/connect.inc.php avec vos identifiant et mot de passe
 
 
 ## Features
@@ -50,12 +53,10 @@ Nous supportons les navigateurs suivants :
 
 Cela ne veut pas dire que les autres navigateurs ou les versions antérieurs des navigateurs ne fonctionnent pas, mais que l'application web est optimisée pour les navigateurs listés ci-dessus.
 
-## Docs
+## Documentations
 
-* [phpDocumentor2](https://github.com/neroon/moocisen/blob/master/docs/phpDocumentor2.md) - Generation de la documentation
-* [File Appendix](https://github.com/neroon/moocisen/blob/master/docs/file-appendix.md) - Fonctionnalitée de chaque fichiers
-* [Utilisé Material Design Lite](https://github.com/neroon/moocisen/blob/master/docs/mdl.md) - Material Design Lite
-* [Guide de déploiement](https://github.com/neroon/moocisen/blob/master/docs/deploy.md) -  Deploiement avec un serveur Apache
+* [phpDocumentor2]() - Generation de la documentation
+* [File Appendix]() - Fonctionnalitée de chaque fichiers
 
 ## Insipiration
 
